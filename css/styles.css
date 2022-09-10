@@ -1,0 +1,141 @@
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+/* General rules */
+:root {
+    --orange-color: #ffc048;
+    --dark-gray-color: #1e272e;
+    --blue-color: #aebebb;
+}
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: system-ui;
+}
+ul {
+	list-style: none;
+}
+a {
+	text-decoration: none;
+	color: #000;
+}
+
+/* -------------- BUTTONS -------------- */
+.btn {
+    background: var(--orange-color);
+    padding: .8rem 1rem;
+    border-radius: 30rem;
+    border: none;
+    cursor: pointer;
+    color: #fff;
+    width: fit-content;
+    transition: background 200ms ease-out;
+}
+.btn:hover {
+    background: #e2a534;
+}
+
+/* -------------- NAVBAR -------------- */
+.navbar {
+    position: relative;
+	top: 0;
+	display: flex;
+	justify-content: space-around;
+    align-items: center;
+    text-transform: uppercase;
+    padding: .6em 0;
+    flex-wrap: wrap;
+}
+.logo {
+    width: 12%;
+    transition: transform 250ms ease;
+}
+.logo:hover {
+    transform: scale(1.025);
+}
+.navbar img {
+    width: 100%;
+}
+.center-nav {
+    display: flex;
+	gap: 5em;
+}
+.center-nav a {
+    position: relative;
+    transition: color 200ms ease-out;
+}
+.center-nav a::before {
+    content: '';
+    bottom: -2px;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    position: absolute;
+    background: #000;
+    transition: width 200ms ease-out, color 200ms ease-out;
+}
+.center-nav a:hover::before {
+    width: 100%;
+    background: var(--orange-color);
+}
+.center-nav a:hover {
+    color: var(--orange-color);
+}
+/* -------------- FIN NAVBAR -------------- */
+
+/* -------------- INICIO ABOUT US -------------- */
+.first-section {
+    width: 90%;
+    position: relative;
+    left: 52%;
+    transform: translate(-50%);
+    display: flex;
+}
+.left-section {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    margin-right: 6rem;
+}
+.eslogan {
+    font-family: 'Lobster', cursive;
+    font-size: 66px;
+}
+.left-section span {
+    font-size: 24px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    color: var(--orange-color);
+    position: relative;
+    left: 3rem;
+}
+.left-section span::before {
+    content: "";
+    position: absolute;
+    width: 1.7em;
+    height: .2em;
+    left: -2em;
+    top: 50%;
+    background: var(--orange-color);
+}
+.right-section {
+    /* outline: 3px solid red; */
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.right-section img {
+    width: 100%;
+    border-radius: 10rem 50rem 10rem 1rem;
+    transition: transform 200ms ease;
+    object-fit: cover;
+}
+.right-section img:hover {
+    transform: scale(1.025);
+}
+
+/* -------------- FIN ABOUT US -------------- */

@@ -1,5 +1,13 @@
+<?php
+	require '../php/conexion.php';
+	
+	if (!empty($_POST["documento"]) && !empty($_POST["password"])) {
+		$sql = "INSERT INTO usuarios";
+	}
+?>
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 	<head>
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -11,19 +19,19 @@
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link href="https://fonts.googleapis.com/css2?family=Potta+One&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet" />
 	</head>
-
+	
 	<body>
 		<!-- Inicio navbar -->
 		<nav class="navbar">
-			<a href="../index.html" class="logo">
+			<a href="../index.php" class="logo">
 				<img src="../imgs/Mockup - deportfit.svg" alt="logo SportFit" />
 			</a>
 			<ul class="center-nav">
-				<li><a href="../index.html">Inicio</a></li>
-				<li><a href="html/inventario.html">Inventario</a></li>
-				<li><a href="html/prestamo.html">Préstamos</a></li>
+				<li><a href="../index.php">Inicio</a></li>
+				<li><a href="inventario.php">Inventario</a></li>
+				<li><a href="prestamo.php">Préstamos</a></li>
 			</ul>
-			<a href="html/login.html" class="btn" id="iniciar-sesion">Iniciar sesión</a>
+			<a href="#" class="btn" id="iniciar-sesion">Iniciar sesión</a>
 		</nav>
 		<!-- Fin del navbar -->
 
@@ -47,17 +55,17 @@
 					<!-- Login -->
 					<form action="" class="formulario__login">
 						<h2>Iniciar Sesión</h2>
-						<input type="text" placeholder="Correo Electrónico" />
-						<input type="password" placeholder="Contraseña" />
+						<input type="text" name="email" placeholder="Correo Electrónico" />
+						<input type="password" name="password" placeholder="Contraseña" />
 						<button>Entrar</button>
 					</form>
 					<!-- Regístro -->
 					<form action="" class="formulario__register">
 						<h2>Registrarse</h2>
-						<input type="text" placeholder="Nombre Completo" />
-						<input type="text" placeholder="Correo Electrónico" />
-						<input type="text" placeholder="Usuario" />
-						<input type="password" placeholder="Contraseña" />
+						<input type="text" name="name" placeholder="Nombre Completo" />
+						<input type="text" name="email" placeholder="Correo Electrónico" />
+						<input type="text" name="username" placeholder="Usuario" />
+						<input type="password" name="password" placeholder="Contraseña" />
 						<button>Registrarse</button>
 					</form>
 				</div>

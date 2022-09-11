@@ -13,15 +13,15 @@
 		<div class="home" id="home">
 		<!-- Inicio navbar -->
 			<nav class="navbar">
-                <a href="index.html" class="logo" >
+                <a href="index.php" class="logo" >
                     <img src="imgs/Mockup - deportfit.svg" alt="logo SportFit" />
                 </a>
 				<ul class="center-nav">
 					<li><a href="#home">Inicio</a></li>
-					<li><a href="html/inventario.html">Inventario</a></li>
-					<li><a href="html/prestamo.html">Préstamos</a></li>
+					<li><a href="vistas/inventario.php">Inventario</a></li>
+					<li><a href="vistas/prestamo.php">Préstamos</a></li>
 				</ul>
-				<a href="html/login.html" class="btn" id="iniciar-sesion">Iniciar sesión</a>
+				<a href="vistas/login.php" class="btn" id="iniciar-sesion">Iniciar sesión</a>
 			</nav>
 			<!-- Fin del navbar -->
 

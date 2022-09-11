@@ -10,18 +10,18 @@
 		<script src="js/app.js" defer></script>
 	</head>
 	<body>
-		<div class="home">
+		<div class="home" id="home">
 		<!-- Inicio navbar -->
 			<nav class="navbar">
                 <a href="index.html" class="logo" >
                     <img src="imgs/Mockup - deportfit.svg" alt="logo SportFit" />
                 </a>
 				<ul class="center-nav">
-					<li><a href="#">Inicio</a></li>
-					<li><a href="#">Inventario</a></li>
-					<li><a href="#">Préstamos</a></li>
+					<li><a href="#home">Inicio</a></li>
+					<li><a href="html/inventario.html">Inventario</a></li>
+					<li><a href="html/prestamo.html">Préstamos</a></li>
 				</ul>
-				<a href="#" class="btn" id="iniciar-sesion">Iniciar sesión</a>
+				<a href="html/login.html" class="btn" id="iniciar-sesion">Iniciar sesión</a>
 			</nav>
 			<!-- Fin del navbar -->
 
@@ -38,6 +38,51 @@
 				</div>
 			</section>
 			<!-- Fin Section -->
+
+			<!-- Segundo section -->
+			<section class="second-section">
+				<div class="container-cards">
+					<div class="card">
+						<h2>Inventario</h2>
+						<p>El inventario, el lugar donde puedes mirar los diferentes objetos a prestar.</p>
+						<a href="#">Hazlo allí</a>
+					</div>
+					<div class="card">
+						<h2>Préstamos</h2>
+						<p>Los préstamos, el lugar donde puedes pedir los objetos que desees</p>
+						<a href="#">Hazlo aqui</a>
+					</div>
+					<div class="card">
+						<h2>Devoluciones</h2>
+						<p>¿Ya hiciste tu préstamo? Hazlo cuando sea hora de devolverlo</p>
+						<a href="#">Hazlo aquí</a>
+					</div>
+				</div>
+			</section>
+			<!-- Fin Segundo section -->
+
+			<!-- Footer -->
+			<footer>
+				<ul class="footer-info">
+					<li><strong>¿Dónde estamos ubicados?</strong>
+						<ul>
+							<li><a href="https://goo.gl/maps/YQ8RRNZhMk4FwjLE9" target="_blank">Carrera 30A N° 77 - 04 Barrio: El Raizal | Medellín, Colombia.</a></li>
+						</ul>
+					</li>
+					<li><strong>Líneas de Atención</strong>
+						<ul>
+							<li><strong><a href="tel:+572636985">263 69 85</a></strong> Ext 0</li>
+							<li>Sede principal: <strong><a href="tel:+573004144867">+57 300 414 48 67</a></strong></li>
+							<li>Sede Alto de la Cruz: <strong><a href="tel:+573004147823">+57 300 414 7823</a></strong></li>
+						</ul>
+					</li>
+				</ul>
+				<div class="separador"></div>
+				<div class="copyright">
+					© 2022 SportFIT - Todos los derechos reservados
+				</div>
+			</footer>
+			<!-- Fin Footer -->
 		</div>
 	</body>
 </html>

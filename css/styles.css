@@ -4,9 +4,9 @@
 
 /* General rules */
 :root {
-    --orange-color: #ffc048;
-    --dark-gray-color: #1e272e;
-    --blue-color: #aebebb;
+	--orange-color: #ffc048;
+	--dark-gray-color: #1e272e;
+	--blue-color: #aebebb;
 }
 * {
 	margin: 0;
@@ -24,118 +24,198 @@ a {
 
 /* -------------- BUTTONS -------------- */
 .btn {
-    background: var(--orange-color);
-    padding: .8rem 1rem;
-    border-radius: 30rem;
-    border: none;
-    cursor: pointer;
-    color: #fff;
-    width: fit-content;
-    transition: background 200ms ease-out;
+	background: var(--orange-color);
+	padding: 0.8rem 1rem;
+	border-radius: 30rem;
+	border: none;
+	cursor: pointer;
+	color: #fff;
+	width: fit-content;
+	transition: background 200ms ease-out;
 }
 .btn:hover {
-    background: #e2a534;
+	background: #e2a534;
 }
 
 /* -------------- NAVBAR -------------- */
 .navbar {
-    position: relative;
+	position: relative;
 	top: 0;
 	display: flex;
 	justify-content: space-around;
-    align-items: center;
-    text-transform: uppercase;
-    padding: .6em 0;
-    flex-wrap: wrap;
+	align-items: center;
+	text-transform: uppercase;
+	padding: 0.6em 0;
+	flex-wrap: wrap;
+	background: #fff;
 }
 .logo {
-    width: 12%;
-    transition: transform 250ms ease;
+	width: 12%;
+	transition: transform 250ms ease;
 }
 .logo:hover {
-    transform: scale(1.025);
+	transform: scale(1.025);
 }
 .navbar img {
-    width: 100%;
+	width: 100%;
 }
 .center-nav {
-    display: flex;
+	display: flex;
 	gap: 5em;
 }
 .center-nav a {
-    position: relative;
-    transition: color 200ms ease-out;
+	position: relative;
+	transition: color 200ms ease-out;
 }
 .center-nav a::before {
-    content: '';
-    bottom: -2px;
-    left: 0;
-    width: 0%;
-    height: 2px;
-    position: absolute;
-    background: #000;
-    transition: width 200ms ease-out, color 200ms ease-out;
+	content: '';
+	bottom: -2px;
+	left: 0;
+	width: 0%;
+	height: 2px;
+	position: absolute;
+	background: #000;
+	transition: width 200ms ease-out, color 200ms ease-out;
 }
 .center-nav a:hover::before {
-    width: 100%;
-    background: var(--orange-color);
+	width: 100%;
+	background: var(--orange-color);
 }
 .center-nav a:hover {
-    color: var(--orange-color);
+	color: var(--orange-color);
 }
 /* -------------- FIN NAVBAR -------------- */
 
 /* -------------- INICIO ABOUT US -------------- */
 .first-section {
-    width: 90%;
-    position: relative;
-    left: 52%;
-    transform: translate(-50%);
-    display: flex;
+	width: 90%;
+	position: relative;
+	left: 52%;
+	transform: translate(-50%);
+	display: flex;
+	margin-top: 3.5rem;
 }
 .left-section {
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    gap: 1em;
-    margin-right: 6rem;
+	width: 50%;
+	display: flex;
+	flex-direction: column;
+	gap: 1em;
+	margin-right: 6rem;
 }
 .eslogan {
-    font-family: 'Lobster', cursive;
-    font-size: 66px;
+	font-family: 'Lobster', cursive;
+	font-size: 66px;
 }
 .left-section span {
-    font-size: 24px;
-    font-family: 'Roboto', sans-serif;
-    font-weight: bold;
-    color: var(--orange-color);
-    position: relative;
-    left: 3rem;
+	font-size: 24px;
+	font-family: 'Roboto', sans-serif;
+	font-weight: bold;
+	color: var(--orange-color);
+	position: relative;
+	left: 3rem;
 }
 .left-section span::before {
-    content: "";
-    position: absolute;
-    width: 1.7em;
-    height: .2em;
-    left: -2em;
-    top: 50%;
-    background: var(--orange-color);
+	content: '';
+	position: absolute;
+	width: 1.7em;
+	height: 0.2em;
+	left: -2em;
+	top: 50%;
+	background: var(--orange-color);
 }
 .right-section {
-    /* outline: 3px solid red; */
-    width: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+	/* outline: 3px solid red; */
+	width: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 .right-section img {
-    width: 100%;
-    border-radius: 10rem 50rem 10rem 1rem;
-    transition: transform 200ms ease;
-    object-fit: cover;
+	width: 100%;
+	border-radius: 10rem 50rem 10rem 1rem;
+	transition: transform 200ms ease;
+	object-fit: cover;
 }
 .right-section img:hover {
-    transform: scale(1.025);
+	transform: scale(1.025);
 }
-
 /* -------------- FIN ABOUT US -------------- */
+
+/* -------------- Cards -------------- */
+.second-section {
+	height: 50vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.container-cards {
+	/* outline: 2px solid red; */
+	display: grid;
+	justify-content: space-around;
+	width: 80%;
+	grid-template-columns: repeat(auto-fill, 300px);
+	gap: 20px;
+	background: #e9ecef;
+	border-radius: 1rem;
+	padding: 1rem;
+    box-shadow: 10px 5px 10px 0px lightgray;
+}
+.card {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	padding: 2rem 0.5rem;
+	gap: 20px;
+}
+.card:is(:nth-child(-n + 2)) {
+	border-right: 1px solid #adb5bd;
+}
+.card h2 {
+	text-align: center;
+}
+.card p {
+	text-align: center;
+	width: 31ch;
+}
+.card a {
+	background: white;
+	width: fit-content;
+	padding: 0.5rem 1rem;
+	border-radius: 1rem;
+    align-self: center;
+    box-shadow: 1px 1px 5px 0px #adb5bd;
+    transition: background 200ms ease-out;
+}
+.card a:hover {
+    background: lightgray;
+}
+/* -------------- Fin Cards -------------- */
+
+/* -------------- Footer -------------- */
+footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 220px;
+    background-color: #e9ecef;
+}
+.footer-info {
+    display: flex;
+    justify-content: center;
+    gap: 3em;
+    padding: 1em 0;
+}
+footer .separador {
+    width: 100%;
+    height: .1em;
+    background-color: #fff;
+    margin: 0 auto;
+}
+footer .copyright {
+    text-align: center;
+    line-height: 3em;
+}
+footer a:hover {
+    text-decoration: underline;
+}
+/* -------------- Fin Footer -------------- */

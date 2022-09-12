@@ -15,11 +15,11 @@
 		
 		$message = "";
 
-		if (count($results) > 0 && password_verify($_POST['contrasena'], $results['contrasena'])) {
+		if (is_countable($results) > 0 && password_verify($_POST['contrasena'], $results['contrasena'])) {
 			$_SESSION['user_id'] = $results['id'];
 			header("location: ../index.php");
 		} else {
-			$message = "Sorry, those credentials do not match";
+			$message = "Lo sentimos, los datos no coinciden";
 		}
 	}
 ?>
@@ -47,7 +47,11 @@
 			<span></span>
 		</nav>
 		<!-- Fin del navbar -->
-
+		<?php if(!empty($message)): ?>
+			<div class="registered-user">
+				<p><?= $message ?></p>
+			</div>
+		<?php endif; ?>
 		<div class="contenedor__padre">
 			<div class="contenedor__todo">
 				<div class="caja__trasera">
@@ -70,11 +74,6 @@
 				</div>
 			</div>
 		</div>
-		<?php if(!empty($message)): ?>
-			<div class="registered-user">
-				<p><?= $message ?></p>
-			</div>
-		<?php endif; ?>
 
 	</body>
 </html>

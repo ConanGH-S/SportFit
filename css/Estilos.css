@@ -27,7 +27,7 @@ body::before {
 	width: 100%;
 	padding: 20px;
 	margin: auto;
-	margin-top: 5%;
+	margin-top: 3.5rem;
 }
 .contenedor__todo {
 	width: 100%;
@@ -83,7 +83,7 @@ body::before {
 }
 .contenedor__login-register form {
 	width: 100%;
-	padding: 50px 20px;
+	padding: 20px;
 	background: white;
 	position: absolute;
 	border-radius: 20px;
@@ -132,12 +132,15 @@ body::before {
 	padding: 0.8rem 1rem;
 	border-radius: 10px;
 	font-size: 20px;
-	width: 50%;
+	width: 35%;
 	position: relative;
 	left: 50%;
 	transform: translate(-50%);
-	margin-top: 5rem;
-	height: 3.5rem;
+	margin-top: 1rem;
+	height: 2.5rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 /* -------------- Fin Login -------------- */

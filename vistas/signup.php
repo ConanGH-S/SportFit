@@ -14,9 +14,9 @@
         $stmt->bindParam(':contrasena', $contrasena);
 
         if ($stmt->execute()) {
-        $message = 'Successfully created new user';
+        header("location: login.php");
         } else {
-        $message = 'Sorry there must have been an issue creating your account';
+        $message = 'Lo sentimos, hubo un error a la hora de crear al usuario';
         }
     }
 ?>

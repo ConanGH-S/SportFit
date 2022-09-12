@@ -27,7 +27,7 @@ body::before {
 	width: 100%;
 	padding: 20px;
 	margin: auto;
-	margin-top: 3.5rem;
+	margin-top: 5%;
 }
 .contenedor__todo {
 	width: 100%;
@@ -39,8 +39,9 @@ body::before {
 	width: 100%;
 	padding: 10px 20px;
 	display: flex;
-	justify-content: flex-end;
+	justify-content: center;
 	backdrop-filter: blur(1px);
+	/* background: url("https://images.pexels.com/photos/314726/pexels-photo-314726.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"); */
 	background: whitesmoke;
 	border-radius: 10px;
 	font-weight: bold;
@@ -49,14 +50,15 @@ body::before {
 	margin: 100px 40px;
 	transition: all 500ms;
 }
-.caja__trasera div p {
-	margin: 45px 0;
+.caja__trasera div p,
+.caja__trasera div button {
+	margin-top: 30px;
 }
 .caja__trasera div h3 {
 	font-weight: 400;
 	font-size: 26px;
 }
-.caja__trasera a {
+.caja__trasera button {
 	padding: 10px 40px;
 	border: 2px solid white;
 	font-size: 18px;
@@ -68,7 +70,7 @@ body::before {
 	border-radius: 8px;
 	color: #fff;
 }
-.caja__trasera a:hover {
+.caja__trasera button:hover {
 	background: #111;
 }
 /* Formularios */
@@ -83,7 +85,7 @@ body::before {
 }
 .contenedor__login-register form {
 	width: 100%;
-	padding: 20px;
+	padding: 50px 20px;
 	background: white;
 	position: absolute;
 	border-radius: 20px;
@@ -100,7 +102,7 @@ body::before {
 	padding: 10px;
 	border: none;
 	border-radius: 10px;
-	background: #e8f0fe;
+	background: #f2f2f2;
 	font-size: 16px;
 	transition: opacity 300ms ease-out;
 }
@@ -124,23 +126,6 @@ body::before {
 }
 .contenedor__login-register button:hover {
 	background: #3478bd;
-}
-.registered-user {
-	color: #fff;
-	text-align: center;
-	background-color: #3478bd;
-	padding: 0.8rem 1rem;
-	border-radius: 10px;
-	font-size: 20px;
-	width: 35%;
-	position: relative;
-	left: 50%;
-	transform: translate(-50%);
-	margin-top: 1rem;
-	height: 2.5rem;
-	display: flex;
-	align-items: center;
-	justify-content: center;
 }
 
 /* -------------- Fin Login -------------- */

@@ -1,7 +1,8 @@
 body {
-	background-color: #FBAB7E;
+	background-color: #fbab7e;
 	min-height: 100vh;
-	background: url("https://images.unsplash.com/photo-1508098682722-e99c43a406b2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80") no-repeat;
+	background: url("https://images.unsplash.com/photo-1508098682722-e99c43a406b2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80")
+		no-repeat;
 	background-size: 100%;
 	background-size: cover;
 	background-position: bottom;
@@ -9,7 +10,7 @@ body {
 	z-index: 1;
 }
 body::before {
-	content: '';
+	content: "";
 	width: 100%;
 	height: 100%;
 	top: 0;
@@ -38,9 +39,8 @@ body::before {
 	width: 100%;
 	padding: 10px 20px;
 	display: flex;
-	justify-content: center;
+	justify-content: flex-end;
 	backdrop-filter: blur(1px);
-	/* background: url("https://images.pexels.com/photos/314726/pexels-photo-314726.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"); */
 	background: whitesmoke;
 	border-radius: 10px;
 	font-weight: bold;
@@ -49,15 +49,14 @@ body::before {
 	margin: 100px 40px;
 	transition: all 500ms;
 }
-.caja__trasera div p,
-.caja__trasera div button {
-	margin-top: 30px;
+.caja__trasera div p {
+	margin: 45px 0;
 }
 .caja__trasera div h3 {
 	font-weight: 400;
 	font-size: 26px;
 }
-.caja__trasera button {
+.caja__trasera a {
 	padding: 10px 40px;
 	border: 2px solid white;
 	font-size: 18px;
@@ -69,7 +68,7 @@ body::before {
 	border-radius: 8px;
 	color: #fff;
 }
-.caja__trasera button:hover {
+.caja__trasera a:hover {
 	background: #111;
 }
 /* Formularios */
@@ -101,7 +100,7 @@ body::before {
 	padding: 10px;
 	border: none;
 	border-radius: 10px;
-	background: #f2f2f2;
+	background: #e8f0fe;
 	font-size: 16px;
 	transition: opacity 300ms ease-out;
 }
@@ -121,10 +120,24 @@ body::before {
 	transition: background 300ms ease;
 	position: relative;
 	left: 50%;
-	transform: translate(-50%)
+	transform: translate(-50%);
 }
 .contenedor__login-register button:hover {
 	background: #3478bd;
+}
+.registered-user {
+	color: #fff;
+	text-align: center;
+	background-color: #3478bd;
+	padding: 0.8rem 1rem;
+	border-radius: 10px;
+	font-size: 20px;
+	width: 50%;
+	position: relative;
+	left: 50%;
+	transform: translate(-50%);
+	margin-top: 5rem;
+	height: 3.5rem;
 }
 
 /* -------------- Fin Login -------------- */

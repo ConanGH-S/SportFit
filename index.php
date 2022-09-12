@@ -1,3 +1,21 @@
+<?php
+	session_start();
+
+	require 'php/conexion.php';
+
+	if (isset($_SESSION['user_id'])) {
+		$records = $conn->prepare('SELECT id, correo, contrasena FROM usuarios WHERE id = :id');
+		$records->bindParam(':id', $_SESSION['user_id']);
+		$records->execute();
+		$results = $records->fetch(PDO::FETCH_ASSOC);
+
+		$user = null;
+
+		if (count($results) > 0) {
+			$user = $results;
+		}
+	}
+?>
 <!DOCTYPE html>
 <html lang="es">
 	<head>
@@ -12,18 +30,30 @@
 	<body>
 		<div class="home" id="home">
 		<!-- Inicio navbar -->
-			<nav class="navbar">
-                <a href="index.php" class="logo" >
-                    <img src="imgs/Mockup - deportfit.svg" alt="logo SportFit" />
-                </a>
-				<ul class="center-nav">
-					<li><a href="#home">Inicio</a></li>
-					<li><a href="vistas/inventario.php">Inventario</a></li>
-					<li><a href="vistas/prestamo.php">Préstamos</a></li>
-				</ul>
-				<a href="vistas/login.php" class="btn" id="iniciar-sesion">Iniciar sesión</a>
-			</nav>
-			<!-- Fin del navbar -->
+			<?php if(!empty($user)): ?>
+				<nav class="navbar">
+					<a href="index.php" class="logo" >
+						<img src="imgs/Mockup - deportfit.svg" alt="logo SportFit" />
+					</a>
+					<ul class="center-nav">
+						<li><a href="#home">Inicio</a></li>
+						<li><a href="vistas/inventario.php">Inventario</a></li>
+						<li><a href="vistas/prestamo.php">Préstamos</a></li>
+					</ul>
+					<a href="vistas/logout.php" class="btn" id="iniciar-sesion">Cerrar sesión</a>
+				</nav>
+			<?php else: ?>
+				<nav class="navbar">
+					<a href="index.php" class="logo" >
+						<img src="imgs/Mockup - deportfit.svg" alt="logo SportFit" />
+					</a>
+					<ul class="center-nav">
+					</ul>
+					<a href="vistas/login.php" class="btn" id="iniciar-sesion">Iniciar sesión</a>
+				</nav>
+			<?php endif; ?>
+		<!-- Fin del navbar -->
+
 
 			<!-- Inicio Section -->
 			<section class="first-section">

@@ -148,8 +148,7 @@ a {
 	justify-content: center;
 	align-items: center;
 }
-.container-cards {
-	/* outline: 2px solid red; */
+.second-section .container-cards {
 	display: grid;
 	justify-content: space-around;
 	width: 80%;
@@ -160,24 +159,24 @@ a {
 	padding: 1rem;
     box-shadow: 10px 5px 10px 0px lightgray;
 }
-.card {
+.second-section .card {
 	display: flex;
 	flex-direction: column;
 	width: 100%;
 	padding: 2rem 0.5rem;
 	gap: 20px;
 }
-.card:is(:nth-child(-n + 2)) {
+.second-section .card:is(:nth-child(-n + 2)) {
 	border-right: 1px solid #adb5bd;
 }
-.card h2 {
+.second-section .card h2 {
 	text-align: center;
 }
-.card p {
+.second-section .card p {
 	text-align: center;
 	width: 31ch;
 }
-.card a {
+.second-section .card a {
 	background: white;
 	width: fit-content;
 	padding: 0.5rem 1rem;
@@ -186,7 +185,7 @@ a {
     box-shadow: 1px 1px 5px 0px #adb5bd;
     transition: background 200ms ease-out;
 }
-.card a:hover {
+.second-section .card a:hover {
     background: lightgray;
 }
 /* -------------- Fin Cards -------------- */

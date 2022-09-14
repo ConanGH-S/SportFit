@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 	<head>
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Inventario | SportFit</title>
+		<title>Inventario | SportFIT</title>
 		<link rel="shortcut icon" href="../imgs/favicon.png" type="image/x-icon" />
 		<link rel="stylesheet" href="../css/styles.css" />
 		<link rel="stylesheet" href="../css/inventario.css" />
@@ -13,20 +13,20 @@
 	<body>
 		<!-- Inicio navbar -->
 		<nav class="navbar">
-			<a href="index.html" class="logo">
+			<a href="../index.php" class="logo" >
 				<img src="../imgs/Mockup - deportfit.svg" alt="logo SportFit" />
 			</a>
 			<ul class="center-nav">
 				<li><a href="../index.php">Inicio</a></li>
-				<li><a href="html/inventario.html">Inventario</a></li>
-				<li><a href="html/prestamo.html">Préstamos</a></li>
+				<li><a href="#">Inventario</a></li>
+				<li><a href="prestamo.php">Préstamos</a></li>
 			</ul>
-			<a href="html/login.html" class="btn" id="iniciar-sesion">Iniciar sesión</a>
+			<a href="logout.php" class="btn" id="iniciar-sesion">Cerrar sesión</a>
 		</nav>
 		<!-- Fin del navbar -->
 		<!-- Main content -->
 		<main>
-			<h2>Inventario de objetos</h2>
+			<h2>INVENTARIO DE OBJETOS</h2>
 			<div class="container-cards">
 				<!-- TODO: Hacer que muestre la cantidad de productos -->
 				<!--* Info Futbol -->

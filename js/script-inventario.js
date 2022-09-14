@@ -119,3 +119,9 @@ document.querySelectorAll('.quit-container').forEach((span) => {
 		document.querySelector('.container-info-card').classList.remove('info-visible');
 	};
 });
+// ? Ocultar recuadro cuando se hace click por fuera del mismo
+window.addEventListener("click", (e) => {
+	if (e.target === document.querySelector(".container-info-card")) {
+		document.querySelector('.container-info-card').classList.remove('info-visible');
+	}
+});

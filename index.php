@@ -25,7 +25,8 @@
 		<title>SportFIT</title>
 		<link rel="shortcut icon" href="imgs/favicon.png" type="image/x-icon" />
 		<link rel="stylesheet" href="css/styles.css" />
-		<script src="js/app.js" defer></script>
+		<!-- Font Awesome -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 	</head>
 	<body>
 		<div class="home" id="home">
@@ -40,10 +41,9 @@
 						<li><a href="vistas/inventario.php">Inventario</a></li>
 						<li><a href="vistas/prestamo.php">Préstamos</a></li>
 					</ul>
-					<div class="select">
-						<a href="vistas/editar-usuario.php" class="btn" id="iniciar-sesion">Editar sesión</a>
+					<div class="select">	
+						<p>Bienvenid@&nbsp;<strong><?php echo $results["nombre_completo"]; ?></strong><a href="vistas/editar-usuario.php" class="edit">&nbsp;<i class="fa-solid fa-pen-to-square"></i></a></p>
 						<a href="vistas/logout.php" class="btn" id="iniciar-sesion">Cerrar sesión</a>
-						<p style="display: block; width: 15ch; text-transform: capitalize;">Bienvenid@ <?php echo $results["nombre_completo"]; ?></p>
 					</div>
 				</nav>
 			<?php else: ?>
@@ -65,7 +65,7 @@
                     <h2 class="eslogan">Tu lado más saludable aquí y ahora</h2>
                     <span>Qué hacemos?</span>
                     <p class="text">Nos encargamos de organizar el Inventario de la <strong>Institución Educativa Ramón Múnera Lopera</strong> y el sistema de préstamos de insumos deportivos.</p>
-                    <a class="btn" href="#">Conoce más aquí</a>
+                    <a class="btn" target="_blank" href="https://www.ieramonmuneralopera.edu.co">Nuestra institución</a>
                 </div>
                 <div class="right-section">
 					<img src="imgs/BalonFutbol.jpg" alt="Imagen">
@@ -78,18 +78,15 @@
 				<div class="container-cards">
 					<div class="card">
 						<h2>Inventario</h2>
-						<p>El inventario, el lugar donde puedes mirar los diferentes objetos a prestar.</p>
-						<a href="#">Hazlo allí</a>
+						<p>Aquí podrás ver y editar la cantidad de objetos del inventario institucional.</p>
 					</div>
 					<div class="card">
 						<h2>Préstamos</h2>
-						<p>Los préstamos, el lugar donde puedes pedir los objetos que desees</p>
-						<a href="#">Hazlo aqui</a>
+						<p>¿Deseas prestar un implemento deportivo? Este es el lugar indicado.</p>
 					</div>
 					<div class="card">
 						<h2>Devoluciones</h2>
-						<p>¿Ya hiciste tu préstamo? Hazlo cuando sea hora de devolverlo</p>
-						<a href="#">Hazlo aquí</a>
+						<p>¿Ya hiciste tu préstamo? ¡Devuelve aquí el objeto prestado!</p>
 					</div>
 				</div>
 			</section>

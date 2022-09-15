@@ -47,3 +47,6 @@ main h2 {
 #prestamo select option:checked {
 	background: var(--orange-color);
 }
+#prestamo button {
+    width: 100%;
+}

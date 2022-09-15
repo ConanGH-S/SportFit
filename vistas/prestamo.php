@@ -1,3 +1,21 @@
+<?php
+	session_start();
+
+	require '../php/conexion.php';
+
+	if (isset($_SESSION['user_id'])) {
+		$records = $conn->prepare('SELECT id, nombre_completo, correo, contrasena FROM usuarios WHERE id = :id');
+		$records->bindParam(':id', $_SESSION['user_id']);
+		$records->execute();
+		$results = $records->fetch(PDO::FETCH_ASSOC);
+
+		$user = null;
+
+		if (count($results) > 0) {
+			$user = $results;
+		}
+	}
+?>
 <!DOCTYPE html>
 <html lang="es">
     <head>
@@ -8,6 +26,8 @@
         <link rel="shortcut icon" href="../imgs/favicon.png" type="image/x-icon" />
         <link rel="stylesheet" href="../css/prestamo.css">
         <link rel="stylesheet" href="../css/styles.css" />
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <script src="../js/script-prestamo.js" defer></script>
     </head>
     <body>
@@ -21,7 +41,10 @@
                 <li><a href="inventario.php">Inventario</a></li>
                 <li><a href="#">Préstamos</a></li>
             </ul>
-            <a href="logout.php" class="btn" id="iniciar-sesion">Cerrar sesión</a>
+            <div class="select">	
+                <p>Bienvenid@&nbsp;<strong><?php echo $results["nombre_completo"]; ?></strong><a href="editar-usuario.php" class="edit">&nbsp;<i class="fa-solid fa-pen-to-square"></i></a></p>
+                <a href="logout.php" class="btn" id="iniciar-sesion">Cerrar sesión</a>
+            </div>
         </nav>
         <!-- Fin del navbar -->
         <!-- Main content -->

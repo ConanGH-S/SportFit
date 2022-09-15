@@ -9,4 +9,7 @@
     } catch (PDOException $e) {
         die("Conection Failed: ".$e->getMessage());
     }
+/*   $cnx = mysqli_connect("localhost", "root", "", "sportfitDB");
+    mysqli_set_charset($cnx, "utf8"); */
 ?>
+

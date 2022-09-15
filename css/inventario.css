@@ -5,145 +5,42 @@
 	--blue-color: #aebebb;
 }
 main {
-    padding: 1rem 0 0 0;
+	padding: 1rem 0 0 0;
 }
 main h2 {
-    text-align: center;
-    font-size: 2.5rem;
-    /* color: var(--orange-color); */
+	font-size: 2.5rem;
+	text-align: center;
 }
-.container-cards {
-    min-height: 70vh;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-    justify-content: space-evenly;
-    padding: 3rem;
+/* Table */
+.container-table {
+	background: white;
+	border: 2px solid black;
+	display: grid;
+	grid-auto-rows: 150px;
+	grid-template-columns: repeat(6, 1fr);
+	margin: 50px auto;
+	width: 90%;
 }
-.card {
-    background: whitesmoke;
-    height: 15rem;
-    width: 15rem;
-    padding: 1rem;
-    border-radius: 10px;
-    box-shadow: 5px 5px 10px 0 #adb5bd;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    justify-content: space-evenly;
-    gap: 10px;
+
+.container-table-title,
+.container-table-info {
+	align-items: center;
+	border-bottom: 2px solid black;
+	display: flex;
+	justify-content: center;
 }
-.card img {
-    align-self: center;
-    height: 5rem;
-    width: 5rem;
+
+.container-table-title {
+	background: #ffc048;
+	font-size: 1.3rem;
+	font-weight: bold;
 }
-.card h3 {
-    text-align: center;
+
+.container-table-info {
+	border-left: 1px solid black;
+	font-size: 1.1rem;
+	padding: 1rem;
 }
-.card button {
-    background: var(--orange-color);
-	width: fit-content;
-	padding: 0.5rem 1rem;
-    border: none;
-	border-radius: 1rem;
-    align-self: center;
-    box-shadow: 1px 1px 5px 0px #adb5bd;
-    cursor: pointer;
-    transition: background 200ms ease-out;
-}
-.card button:hover {
-    background: #e2a534;
-}
-/* Info card */
-.container-info-card {
-    position: fixed;
-    height: 100%;
-    width: 100%;
-    top: 0;
-    left: 0;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(2px);
-    visibility: hidden;
-    opacity: 0;
-    transition: opacity 200ms ease-out;
-}
-.info-visible {
-    visibility: visible;
-    opacity: 1;
-}
-.info-card {
-    position: fixed;
-    height: 90%;
-    width: 80%;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: whitesmoke;
-    border-radius: 10px;
-    z-index: 100;
-    padding: 1rem;
-    display: grid;
-    grid-template-columns: 30% 70%;
-}
-/* Img */
-.info-card-img {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 5px;
-}
-.container-info-card img {
-    height: 10rem;
-    box-sizing: content-box;
-    border: 5px solid black;
-    border-radius: 50%;
-}
-/*
-.img-baston {
-    background: url('../imgs/inventario-img/info-card/fondoBaston.jpg');
-    background-position-y: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position-x: center;
-}
-.img-volleyball {
-    background: url('../imgs/inventario-img/info-card/fondoVolleyball.jpg');
-    background-position-x: 22rem;
-}
-.img-ulaula {
-    background: url('../imgs/inventario-img/info-card/fondoUlaula.webp');
-} */
-/* Text */
-.info-card-text {
-    padding-inline: 2rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    gap: 20px;
-    position: relative;
-}
-.info-card-text ul {
-    display: inherit;
-    flex-direction: column;
-    gap: 20px;
-    font-size: 1.2rem;
-}
-.info-card-text #prestar {
-    font-size: 1.1rem;
-    background: var(--orange-color);
-    width: fit-content;
-    padding: 1rem;
-    border-radius: 3rem;
-    transition: background 200ms ease-out;
-}
-.info-card-text #prestar:hover {
-    background: #e2a534;
-}
-.info-card-text .quit-container {
-    font-size: 3rem;
-    position: absolute;
-    top: -10px;
-    right: 20px;
-    cursor: pointer;
+#id-row:nth-child(even) {
+	background: whitesmoke;
 }

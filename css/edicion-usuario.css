@@ -1,0 +1,45 @@
+main {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin: 1rem 0 3rem 0;
+}
+main h2 {
+	background: var(--orange-color);
+	border-radius: 10px 10px 0 0;
+	font-size: 2.2rem;
+	padding: 0.3em 0;
+	text-align: center;
+	width: 45%;
+}
+#edicion {
+	align-content: center;
+	background-color: whitesmoke;
+	border-radius: 0 0 10px 10px;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	justify-content: center;
+	padding: 2rem;
+	width: 45%;
+}
+#edicion label {
+	font-size: 20px;
+}
+#edicion input {
+	background: transparent;
+	border: none;
+	border-bottom: 2px solid black;
+	border-radius: 3px;
+	padding: 0.7rem 1.1rem;
+}
+#edicion input:focus {
+	outline: none;
+}
+#edicion input:focus::placeholder {
+	opacity: 0.6;
+}
+#edicion button {
+	width: 100%;
+}

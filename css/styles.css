@@ -84,6 +84,18 @@ a {
 .center-nav a:hover {
 	color: var(--orange-color);
 }
+.select {
+	display: flex;
+	align-items: center;
+	gap: 1em;
+}
+.select p {
+	text-transform: capitalize;
+	max-width: 20ch;
+}
+i {
+	color: var(--orange-color);
+}
 /* -------------- FIN NAVBAR -------------- */
 
 /* -------------- INICIO ABOUT US -------------- */

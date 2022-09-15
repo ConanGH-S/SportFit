@@ -1,0 +1,17 @@
+* {
+    box-sizing: border-box;
+    font-family: system-ui;
+    margin: 0;
+    padding: 0;
+}
+body {
+    display: grid;
+    height: 100vh;
+    place-items: center;
+}
+table th, td{
+    padding: 1rem .5rem;
+}
+.info {
+    color: red;
+}

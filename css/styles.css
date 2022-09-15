@@ -84,6 +84,9 @@ a {
 .center-nav a:hover {
 	color: var(--orange-color);
 }
+.select {
+	background-color: red;
+}
 /* -------------- FIN NAVBAR -------------- */
 
 /* -------------- INICIO ABOUT US -------------- */

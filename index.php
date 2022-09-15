@@ -4,7 +4,7 @@
 	require 'php/conexion.php';
 
 	if (isset($_SESSION['user_id'])) {
-		$records = $conn->prepare('SELECT id, correo, contrasena FROM usuarios WHERE id = :id');
+		$records = $conn->prepare('SELECT id, nombre_completo, correo, contrasena FROM usuarios WHERE id = :id');
 		$records->bindParam(':id', $_SESSION['user_id']);
 		$records->execute();
 		$results = $records->fetch(PDO::FETCH_ASSOC);
@@ -40,7 +40,11 @@
 						<li><a href="vistas/inventario.php">Inventario</a></li>
 						<li><a href="vistas/prestamo.php">Préstamos</a></li>
 					</ul>
-					<a href="vistas/logout.php" class="btn" id="iniciar-sesion">Cerrar sesión</a>
+					<div class="select">
+						<a href="vistas/editar-usuario.php" class="btn" id="iniciar-sesion">Editar sesión</a>
+						<a href="vistas/logout.php" class="btn" id="iniciar-sesion">Cerrar sesión</a>
+						<p style="display: block; width: 15ch; text-transform: capitalize;">Bienvenid@ <?php echo $results["nombre_completo"]; ?></p>
+					</div>
 				</nav>
 			<?php else: ?>
 				<nav class="navbar">

@@ -11,7 +11,7 @@
 
 		$user = null;
 
-		if (count($results) > 0) {
+		if (is_countable($results) > 0) {
 			$user = $results;
 		}
 	}

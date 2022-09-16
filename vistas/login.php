@@ -70,7 +70,6 @@
 <!-- Validaciones para el inicio de sesión de usuarios -->
 <?php
 	session_start();
-
 	if (isset($_SESSION['user_id'])) {
 		header('Location: ../index.php');
 	}
@@ -82,7 +81,17 @@
 		$records->execute();
 		$results = $records->fetch(PDO::FETCH_ASSOC);
 		
-		if (is_countable($results) > 0 && password_verify($_POST['contrasena'], $results['contrasena'])) {
+		require '../php/conexionsqli.php';
+
+		$correo = $_POST['correo'];
+		$contrasena = $_POST['contrasena'];
+
+		$mysqli = $mysqli = new mysqli('localhost', 'root', '', 'sportfit');
+
+		$query = "SELECT correo, contrasena FROM usuarios WHERE correo = '$correo' AND contrasena='$contrasena';";
+		$result = $mysqli->query($query);
+
+		if (is_countable($results) > 0 && $result->num_rows == 1) {
 			$_SESSION['user_id'] = $results['id'];
 			header("location: ../index.php");
 		} else {
@@ -105,8 +114,7 @@
         $stmt->bindParam(':nombre_completo', $_POST['nombre_completo']);
         $stmt->bindParam(':correo', $_POST['correo']);
         $stmt->bindParam(':contacto', $_POST['contacto']);
-        $contrasena = password_hash($_POST['contrasena'], PASSWORD_BCRYPT);
-        $stmt->bindParam(':contrasena', $contrasena);
+        $stmt->bindParam(':contrasena', $_POST['contrasena']);
 
         if ($stmt->execute()) {
         header("location: login.php");

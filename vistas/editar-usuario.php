@@ -13,7 +13,7 @@
 
 		$user = null;
 
-		if (count($results) > 0) {
+		if (is_countable($results) > 0) {
 			$user = $results;
 		}
 	}
@@ -57,6 +57,8 @@
             require '../php/conexionsqli.php';
             $result = mysqli_query($cnx,"SELECT * FROM usuarios WHERE id = $id");
             while($row = mysqli_fetch_array($result)){
+                echo "<label>ID</label>";
+                echo "<input required readonly value='{$row['id']}' placeholder='ID usuario' type='text' name='id'>";
                 echo "<label>Nombre Completo</label>";
                 echo "<input required value='{$row['nombre_completo']}' placeholder='Nombre Completo' type='text' name='nombre_completo'>";
                 echo "<label>Correo</label>";

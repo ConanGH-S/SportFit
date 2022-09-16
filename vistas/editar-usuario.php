@@ -3,6 +3,7 @@
 
     require 'session.php';
 	require '../php/conexion.php';
+    $id = $_SESSION['user_id'];
 
 	if (isset($_SESSION['user_id'])) {
 		$records = $conn->prepare('SELECT id, nombre_completo, correo, contrasena FROM usuarios WHERE id = :id');
@@ -24,6 +25,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edición de usuario | SportFIT</title>
+    <link rel="shortcut icon" href="../imgs/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/edicion-usuario.css">
     <!-- Font Awesome -->
@@ -50,16 +52,22 @@
     <!-- Formulario Edición de Usuario -->
     <main>
         <h2>Edición de Usuario</h2>
-        <form method="POST" id="edicion">
-            <label>Nombre Completo</label>
-            <input placeholder="Nombre Completo" type="text" name="nombre_completo">
-            <label>Correo</label>
-            <input placeholder="Correo" type="text" name="correo">
-            <label>Contacto</label>
-            <input placeholder="Contacto" type="text" name="contacto">
-            <label>Contraseña</label>
-            <input placeholder="Contraseña" type="text" name="contrasena">
-            <button class="btn">Editar</button>
+        <form action="actualizar-usuario.php" method="POST" id="edicion">
+            <?php
+            require '../php/conexionsqli.php';
+            $result = mysqli_query($cnx,"SELECT * FROM usuarios WHERE id = $id");
+            while($row = mysqli_fetch_array($result)){
+                echo "<label>Nombre Completo</label>";
+                echo "<input required value='{$row['nombre_completo']}' placeholder='Nombre Completo' type='text' name='nombre_completo'>";
+                echo "<label>Correo</label>";
+                echo "<input required value='{$row['correo']}' placeholder='Correo' type='text' name='correo'>";
+                echo "<label>Contacto</label>";
+                echo "<input required value='{$row['contacto']}' placeholder='Contacto' type='number' name='contacto'>";
+                echo "<label>Contraseña</label>";
+                echo "<input placeholder='Nueva Contraseña' type='password' name='contrasena'>";
+                echo "<button type='submit' class='btn'>Editar</button>";
+                echo "<a href='../index.php' class='btn'>Cancelar</a>";
+            }?>
         </form>
     </main>
     <!-- Fin Formulario Edición de Usuario -->

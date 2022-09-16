@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 12-09-2022 a las 16:59:30
+-- Tiempo de generación: 16-09-2022 a las 02:12:13
 -- Versión del servidor: 10.4.18-MariaDB
 -- Versión de PHP: 8.0.3
 
@@ -30,9 +30,17 @@ SET time_zone = "+00:00";
 CREATE TABLE `articulo` (
   `id_articulo` int(5) NOT NULL,
   `tipo_articulo` varchar(30) NOT NULL,
+  `cantidad` int(4) NOT NULL,
   `estado_articulo` varchar(30) NOT NULL,
-  `descripcion` varchar(30) NOT NULL
+  `descripcion` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `articulo`
+--
+
+INSERT INTO `articulo` (`id_articulo`, `tipo_articulo`, `cantidad`, `estado_articulo`, `descripcion`) VALUES
+(1, 'Pesa', 26, 'Regular', 'Pesas deportivas para su uso práctico');
 
 -- --------------------------------------------------------
 
@@ -95,7 +103,10 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `documento`, `nombre_completo`, `correo`, `contacto`, `contrasena`) VALUES
-(1, 777, 'admin', 'admin', 12345, '$2y$10$Lk9Dco6DsjGXlUKNWTrpTuBlsLe7cx3WS7KvFsab3KP4zCBIhm8RC');
+(1, 777, 'admin', 'admin@admin', 12345, '$2y$10$Lk9Dco6DsjGXlUKNWTrpTuBlsLe7cx3WS7KvFsab3KP4zCBIhm8RC'),
+(2, 1, 'a', 'a', 0, '$2y$10$aQwtvVcSykn6J.d6QVC6gODsnpDAAuBoI5GGjDvTeFvAf3dlr03Py'),
+(3, 123, 'awdawd', 'awdawd@dawdawd', 1132, '$2y$10$bkG7beEB8jeuVW0qOBd3I.Qzf8GDIqDo2WoEcNr1DZv2Nd1QXhuPi'),
+(4, 1035972513, 'karen gomez', 'karne@gomela.com', 12234456, '$2y$10$4m1fgVI4C8D7Yo/I9ibY1eODYjYjlpPAgFU7r2hSqqnlyWBXLMTXm');
 
 --
 -- Índices para tablas volcadas
@@ -145,7 +156,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `articulo`
 --
 ALTER TABLE `articulo`
-  MODIFY `id_articulo` int(5) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_articulo` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `devolucion`
@@ -163,7 +174,7 @@ ALTER TABLE `prestamo`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Restricciones para tablas volcadas
@@ -186,4 +197,4 @@ COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONN

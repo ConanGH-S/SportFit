@@ -29,7 +29,8 @@ a {
 	border-radius: 30rem;
 	border: none;
 	cursor: pointer;
-	color: #fff;
+	color: #333;
+	font-weight: 500;
 	width: fit-content;
 	transition: background 200ms ease-out;
 }
@@ -91,9 +92,9 @@ a {
 }
 .select p {
 	text-transform: capitalize;
-	max-width: 20ch;
 }
 i {
+	font-size: 20px;
 	color: var(--orange-color);
 }
 /* -------------- FIN NAVBAR -------------- */

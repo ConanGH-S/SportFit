@@ -29,7 +29,7 @@ $sql = "SELECT * FROM articulo";
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>Inventario | SportFIT</title>
-	<link rel="shortcut icon" href="../imgs/favicon.png" type="image/x-icon" />
+	<link rel="shortcut icon" href="../imgs/favicon.ico" type="image/x-icon" />
 	<link rel="stylesheet" href="../css/styles.css" />
 	<link rel="stylesheet" href="../css/inventario.css">
 	<script src="../js/script-inventario.js" defer></script>

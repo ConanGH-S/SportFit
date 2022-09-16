@@ -1,6 +1,7 @@
 <?php
 	session_start();
-
+    
+    require 'session.php';
 	require '../php/conexion.php';
 
 	if (isset($_SESSION['user_id'])) {

@@ -30,6 +30,8 @@
     <link rel="stylesheet" href="../css/edicion-usuario.css">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="../js/script-editar-usuario.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
     <!-- Inicio navbar -->
@@ -52,22 +54,15 @@
     <!-- Formulario Edición de Usuario -->
     <main>
         <h2>Edición de Usuario</h2>
-        <form action="actualizar-usuario.php" method="POST" id="edicion">
+        <form action="actualizar-contrasena.php" method="POST" id="edicion">
             <?php
             require '../php/conexionsqli.php';
             $result = mysqli_query($cnx,"SELECT * FROM usuarios WHERE id = $id");
             while($row = mysqli_fetch_array($result)){
-                echo "<label>ID</label>";
-                echo "<input required readonly value='{$row['id']}' placeholder='ID usuario' type='text' name='id'>";
-                echo "<label>Nombre Completo</label>";
-                echo "<input required value='{$row['nombre_completo']}' placeholder='Nombre Completo' type='text' name='nombre_completo'>";
-                echo "<label>Correo</label>";
-                echo "<input required value='{$row['correo']}' placeholder='Correo' type='text' name='correo'>";
-                echo "<label>Contacto</label>";
-                echo "<input required value='{$row['contacto']}' placeholder='Contacto' type='number' name='contacto'>";
+                echo "<label>Contraseña</label>";
+                echo "<input placeholder='Nueva Contraseña' type='password' name='contrasena' id='contrasena'>";
                 echo "<button type='submit' class='btn'>Editar</button>";
-                echo "<a href='editar-contrasena.php' id='editar-contrasena'>Editar Contraseña</a>";
-                echo "<a href='../index.php' class='btn' id='cancelar'>Cancelar</a>";
+                echo "<a href='editar-usuario.php' class='btn'>Volver</a>";
             }?>
         </form>
     </main>

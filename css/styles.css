@@ -99,7 +99,13 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
 }
 i {
 	font-size: 20px;
-	color: var(--orange-color);
+	border-radius: 50px;
+	padding: 12.8px 1.5em;
+	background-color: var(--orange-color);
+	transition: background 200ms ease-out;
+}
+i:hover {
+	background: #e2a534;
 }
 /* -------------- FIN NAVBAR -------------- */
 
@@ -206,6 +212,27 @@ i {
     background: lightgray;
 }
 /* -------------- Fin Cards -------------- */
+
+/* Editar Contraseña */
+#editar-contrasena {
+	background: var(--orange-color);
+	padding: 0.8rem 6rem;
+	border-radius: 30rem;
+	border: none;
+	cursor: pointer;
+	color: #333;
+	font-weight: 500;
+	user-select: none;
+	-webkit-user-drag: none;
+	font-size: 13.3px;
+	transition: background 200ms ease-out;
+	width: 100%;
+	text-align: center;
+}
+#editar-contrasena:hover {
+	background: #e2a534;
+}
+/* Fin Editar Contraseña */
 
 /* -------------- Footer -------------- */
 footer {

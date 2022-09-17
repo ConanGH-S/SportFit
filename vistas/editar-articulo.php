@@ -20,7 +20,6 @@ $id_articulo = $_GET["id"];
 ?>
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -103,5 +102,4 @@ $id_articulo = $_GET["id"];
     </footer>
     <!-- Fin Footer -->
 </body>
-
 </html>

@@ -1,26 +1,25 @@
 <?php
-session_start();
+    session_start();
 
-require 'session.php';
-require '../php/conexion.php';
-$id = $_SESSION["user_id"];
+    require 'session.php';
+    require '../php/conexion.php';
+    $id = $_SESSION["user_id"];
 
-if (isset($_SESSION['user_id'])) {
-    $records = $conn->prepare('SELECT id, nombre_completo, correo, contrasena FROM usuarios WHERE id = :id');
-    $records->bindParam(':id', $_SESSION['user_id']);
-    $records->execute();
-    $results = $records->fetch(PDO::FETCH_ASSOC);
+    if (isset($_SESSION['user_id'])) {
+        $records = $conn->prepare('SELECT id, nombre_completo, correo, contrasena FROM usuarios WHERE id = :id');
+        $records->bindParam(':id', $_SESSION['user_id']);
+        $records->execute();
+        $results = $records->fetch(PDO::FETCH_ASSOC);
 
-    $user = null;
+        $user = null;
 
-    if (is_countable($results) > 0) {
-        $user = $results;
+        if (is_countable($results) > 0) {
+            $user = $results;
+        }
     }
-}
 ?>
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -32,7 +31,6 @@ if (isset($_SESSION['user_id'])) {
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
-
 <body>
     <!-- Inicio navbar -->
     <nav class="navbar">
@@ -123,5 +121,4 @@ if (isset($_SESSION['user_id'])) {
         fechaEl.value =  `${fecha.getFullYear()}-${String(fecha.getMonth()+1).padStart(2, "0")}-${String(fecha.getDate()).padStart(2, "0")}`;
     </script>
 </body>
-
 </html>

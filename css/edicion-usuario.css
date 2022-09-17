@@ -44,14 +44,14 @@ main h2 {
 	width: 100%;
 }
 #edicion a {
-	width: 100%;
-	text-align: center;
-	user-select: none;
-	-webkit-user-drag: none;
 	font-size: 13.3px;
+	text-align: center;
+	-webkit-user-drag: none;
+	user-select: none;
+	width: 100%;
 }
 #edicion select {
 	border-radius: 6px;
-	padding: 0.5rem 0.7rem;
 	font-size: 16px;
+	padding: 0.5rem 0.7rem;
 }

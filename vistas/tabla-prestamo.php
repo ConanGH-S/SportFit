@@ -18,8 +18,8 @@
 	}
 ?>
 <?php
-require("../php/conexionsqli.php");
-$sql = "SELECT * FROM prestamo";
+	require("../php/conexionsqli.php");
+	$sql = "SELECT * FROM prestamo";
 ?>
 <!DOCTYPE html>
 <html lang="es">

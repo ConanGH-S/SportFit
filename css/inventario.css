@@ -21,7 +21,6 @@ main h2 {
 	margin: 50px auto;
 	width: 90%;
 }
-
 .container-table-title,
 .container-table-info {
 	align-items: center;
@@ -30,13 +29,11 @@ main h2 {
 	justify-content: center;
 	text-align: center;
 }
-
 .container-table-title {
 	background: #ffc048;
 	font-size: 1.3rem;
 	font-weight: bold;
 }
-
 .container-table-info {
 	border-left: 1px solid black;
 	font-size: 1.1rem;

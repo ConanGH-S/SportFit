@@ -1,29 +1,28 @@
 <?php
-session_start();
+	session_start();
 
-require 'session.php';
-require '../php/conexion.php';
+	require 'session.php';
+	require '../php/conexion.php';
 
-if (isset($_SESSION['user_id'])) {
-	$records = $conn->prepare('SELECT id, nombre_completo, correo, contrasena FROM usuarios WHERE id = :id');
-	$records->bindParam(':id', $_SESSION['user_id']);
-	$records->execute();
-	$results = $records->fetch(PDO::FETCH_ASSOC);
+	if (isset($_SESSION['user_id'])) {
+		$records = $conn->prepare('SELECT id, nombre_completo, correo, contrasena FROM usuarios WHERE id = :id');
+		$records->bindParam(':id', $_SESSION['user_id']);
+		$records->execute();
+		$results = $records->fetch(PDO::FETCH_ASSOC);
 
-	$user = null;
+		$user = null;
 
-	if (is_countable($results) > 0) {
-		$user = $results;
+		if (is_countable($results) > 0) {
+			$user = $results;
+		}
 	}
-}
 ?>
 <?php
-require("../php/conexionsqli.php");
-$sql = "SELECT * FROM articulo";
+	require("../php/conexionsqli.php");
+	$sql = "SELECT * FROM articulo";
 ?>
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
 	<meta charset="UTF-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />

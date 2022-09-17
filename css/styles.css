@@ -1,6 +1,6 @@
 /* Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 
 /* General rules */
 :root {
@@ -9,34 +9,35 @@
 	--blue-color: #aebebb;
 }
 * {
-	margin: 0;
-	padding: 0;
 	box-sizing: border-box;
 	font-family: system-ui;
+	margin: 0;
+	padding: 0;
 }
 ul {
 	list-style: none;
 }
 a {
-	text-decoration: none;
 	color: #000;
+	text-decoration: none;
 }
-input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button {
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
 	appearance: none;
-    margin: 0;
+	margin: 0;
 }
 
 /* -------------- BUTTONS -------------- */
 .btn {
 	background: var(--orange-color);
-	padding: 0.8rem 1rem;
-	border-radius: 30rem;
 	border: none;
-	cursor: pointer;
+	border-radius: 30rem;
 	color: #333;
+	cursor: pointer;
 	font-weight: 500;
-	width: fit-content;
+	padding: 0.8rem 1rem;
 	transition: background 200ms ease-out;
+	width: fit-content;
 }
 .btn:hover {
 	background: #e2a534;
@@ -44,19 +45,19 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
 
 /* -------------- NAVBAR -------------- */
 .navbar {
-	position: relative;
-	top: 0;
-	display: flex;
-	justify-content: space-around;
 	align-items: center;
-	text-transform: uppercase;
-	padding: 0.6em 0;
-	flex-wrap: wrap;
 	background: #fff;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	padding: 0.6em 0;
+	position: relative;
+	text-transform: uppercase;
+	top: 0;
 }
 .logo {
-	width: 12%;
 	transition: transform 250ms ease;
+	width: 12%;
 }
 .logo:hover {
 	transform: scale(1.025);
@@ -73,35 +74,35 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
 	transition: color 200ms ease-out;
 }
 .center-nav a::before {
-	content: '';
-	bottom: -2px;
-	left: 0;
-	width: 0%;
-	height: 2px;
-	position: absolute;
 	background: #000;
+	bottom: -2px;
+	content: "";
+	height: 2px;
+	left: 0;
+	position: absolute;
 	transition: width 200ms ease-out, color 200ms ease-out;
+	width: 0%;
 }
 .center-nav a:hover::before {
-	width: 100%;
 	background: var(--orange-color);
+	width: 100%;
 }
 .center-nav a:hover {
 	color: var(--orange-color);
 }
 .select {
-	display: flex;
 	align-items: center;
+	display: flex;
 	gap: 1em;
 }
 .select p {
 	text-transform: capitalize;
 }
 i {
-	font-size: 20px;
-	border-radius: 50px;
-	padding: 12.8px 1.5em;
 	background-color: var(--orange-color);
+	border-radius: 50px;
+	font-size: 20px;
+	padding: 12.8px 1.5em;
 	transition: background 200ms ease-out;
 }
 i:hover {
@@ -111,53 +112,53 @@ i:hover {
 
 /* -------------- INICIO ABOUT US -------------- */
 .first-section {
-	width: 90%;
-	position: relative;
-	left: 52%;
-	transform: translate(-50%);
 	display: flex;
+	left: 52%;
 	margin-top: 3.5rem;
+	position: relative;
+	transform: translate(-50%);
+	width: 90%;
 }
 .left-section {
-	width: 50%;
 	display: flex;
 	flex-direction: column;
 	gap: 1em;
 	margin-right: 6rem;
+	width: 50%;
 }
 .eslogan {
-	font-family: 'Lobster', cursive;
+	font-family: "Lobster", cursive;
 	font-size: 66px;
 }
 .left-section span {
-	font-size: 24px;
-	font-family: 'Roboto', sans-serif;
-	font-weight: bold;
 	color: var(--orange-color);
-	position: relative;
+	font-family: "Roboto", sans-serif;
+	font-size: 24px;
+	font-weight: bold;
 	left: 3rem;
+	position: relative;
 }
 .left-section span::before {
-	content: '';
-	position: absolute;
-	width: 1.7em;
+	background: var(--orange-color);
+	content: "";
 	height: 0.2em;
 	left: -2em;
+	position: absolute;
 	top: 50%;
-	background: var(--orange-color);
+	width: 1.7em;
 }
 .right-section {
-	/* outline: 3px solid red; */
-	width: 50%;
+	align-items: center;
 	display: flex;
 	justify-content: center;
-	align-items: center;
+	/* outline: 3px solid red; */
+	width: 50%;
 }
 .right-section img {
-	width: 100%;
 	border-radius: 10rem 50rem 10rem 1rem;
-	transition: transform 200ms ease;
 	object-fit: cover;
+	transition: transform 200ms ease;
+	width: 100%;
 }
 .right-section img:hover {
 	transform: scale(1.025);
@@ -166,28 +167,28 @@ i:hover {
 
 /* -------------- Cards -------------- */
 .second-section {
-	height: 50vh;
-	display: flex;
-	justify-content: center;
 	align-items: center;
+	display: flex;
+	height: 50vh;
+	justify-content: center;
 }
 .second-section .container-cards {
-	display: grid;
-	justify-content: space-around;
-	width: 80%;
-	grid-template-columns: repeat(auto-fill, 300px);
-	gap: 20px;
 	background: #e9ecef;
 	border-radius: 1rem;
+	box-shadow: 10px 5px 10px 0px lightgray;
+	display: grid;
+	gap: 20px;
+	grid-template-columns: repeat(auto-fill, 300px);
+	justify-content: space-around;
 	padding: 1rem;
-    box-shadow: 10px 5px 10px 0px lightgray;
+	width: 80%;
 }
 .second-section .card {
 	display: flex;
 	flex-direction: column;
-	width: 100%;
-	padding: 2rem 0.5rem;
 	gap: 20px;
+	padding: 2rem 0.5rem;
+	width: 100%;
 }
 .second-section .card:is(:nth-child(-n + 2)) {
 	border-right: 1px solid #adb5bd;
@@ -200,34 +201,34 @@ i:hover {
 	width: 31ch;
 }
 .second-section .card a {
+	align-self: center;
 	background: white;
-	width: fit-content;
-	padding: 0.5rem 1rem;
 	border-radius: 1rem;
-    align-self: center;
-    box-shadow: 1px 1px 5px 0px #adb5bd;
-    transition: background 200ms ease-out;
+	box-shadow: 1px 1px 5px 0px #adb5bd;
+	padding: 0.5rem 1rem;
+	transition: background 200ms ease-out;
+	width: fit-content;
 }
 .second-section .card a:hover {
-    background: lightgray;
+	background: lightgray;
 }
 /* -------------- Fin Cards -------------- */
 
 /* Editar Contraseña */
 #editar-contrasena {
 	background: var(--orange-color);
-	padding: 0.8rem 6rem;
-	border-radius: 30rem;
 	border: none;
-	cursor: pointer;
+	border-radius: 30rem;
 	color: #333;
-	font-weight: 500;
-	user-select: none;
-	-webkit-user-drag: none;
+	cursor: pointer;
 	font-size: 13.3px;
-	transition: background 200ms ease-out;
-	width: 100%;
+	font-weight: 500;
+	padding: 0.8rem 6rem;
 	text-align: center;
+	transition: background 200ms ease-out;
+	-webkit-user-drag: none;
+	user-select: none;
+	width: 100%;
 }
 #editar-contrasena:hover {
 	background: #e2a534;
@@ -236,29 +237,29 @@ i:hover {
 
 /* -------------- Footer -------------- */
 footer {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height: 220px;
-    background-color: #e9ecef;
+	background-color: #e9ecef;
+	display: flex;
+	flex-direction: column;
+	height: 220px;
+	justify-content: center;
 }
 .footer-info {
-    display: flex;
-    justify-content: center;
-    gap: 3em;
-    padding: 1em 0;
+	display: flex;
+	gap: 3em;
+	justify-content: center;
+	padding: 1em 0;
 }
 footer .separador {
-    width: 100%;
-    height: .1em;
-    background-color: #fff;
-    margin: 0 auto;
+	background-color: #fff;
+	height: 0.1em;
+	margin: 0 auto;
+	width: 100%;
 }
 footer .copyright {
-    text-align: center;
-    line-height: 3em;
+	line-height: 3em;
+	text-align: center;
 }
 footer a:hover {
-    text-decoration: underline;
+	text-decoration: underline;
 }
 /* -------------- Fin Footer -------------- */

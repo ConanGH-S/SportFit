@@ -56,29 +56,21 @@ iniciarSesion();
 
 // Validaciones para el inicio de sesión
 // Declaración de variables
-const loginFormEl = document.querySelector(".formulario__login");
+const loginFormEl = document.querySelector('.formulario__login');
 const correoLoginInput = document.querySelector('#correoLogin');
 const contrasenaLoginInput = document.querySelector('#contrasenaLogin');
 
 // Funciones
 const validarLoginForm = (e) => {
-	if (correoLoginInput.value.length === 0 ||
-		correoLoginInput.value === '' ||
-		correoLoginInput.value === null ||
-		/^\s+$/.test(correoLoginInput.value) ||
-		contrasenaLoginInput.value.length === 0 ||
-		contrasenaLoginInput.value === '' ||
-		contrasenaLoginInput.value === null ||
-		/^\s+$/.test(contrasenaLoginInput.value)) {
+	if (correoLoginInput.value.length === 0 || /^\s+$/.test(correoLoginInput.value) || contrasenaLoginInput.value.length === 0 || /^\s+$/.test(contrasenaLoginInput.value)) {
 		e.preventDefault();
 		Swal.fire({
 			icon: 'error',
 			title: 'Error...',
 			text: 'Los campos no pueden estar vacíos o llenos de espacios en blanco!',
 		});
-		return;
 	}
-}
+};
 const validarCorreoLogin = () => {
 	if (correoLoginInput.value.length === 0 || correoLoginInput.value === '' || correoLoginInput.value === null || /^\s+$/.test(correoLoginInput.value)) {
 		Swal.fire({
@@ -101,7 +93,7 @@ const validarContrasenaLogin = () => {
 };
 
 // Eventos
-loginFormEl.addEventListener("submit", validarLoginForm);
+loginFormEl.addEventListener('submit', validarLoginForm);
 correoLoginInput.addEventListener('focusout', validarCorreoLogin);
 contrasenaLoginInput.addEventListener('focusout', validarContrasenaLogin);
 // Fin Validaciones para el inicio de sesión

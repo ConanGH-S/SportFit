@@ -27,9 +27,10 @@ $sql = "SELECT * FROM prestamo";
 	<meta charset="UTF-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>Inventario | SportFIT</title>
+	<title>Préstamos | SportFIT</title>
 	<link rel="shortcut icon" href="../imgs/favicon.png" type="image/x-icon" />
 	<link rel="stylesheet" href="../css/styles.css" />
+	<link rel="stylesheet" href="../css/inventario.css">
 	<link rel="stylesheet" href="../css/prestamo.css">
 	<script src="../js/script-inventario.js" defer></script>
 	<!-- Font Awesome -->
@@ -43,8 +44,8 @@ $sql = "SELECT * FROM prestamo";
         </a>
         <ul class="center-nav">
             <li><a href="../index.php">Inicio</a></li>
-            <li><a href="#">Inventario</a></li>
-            <li><a href="prestamo.php">Préstamos</a></li>
+            <li><a href="inventario.php">Inventario</a></li>
+            <li><a href="#">Préstamos</a></li>
         </ul>
         <div class="select">	
             <p>Bienvenid@&nbsp;<strong><?php echo $results["nombre_completo"]; ?></strong><a href="editar-usuario.php" class="edit">&nbsp;<i class="fa-solid fa-pen-to-square"></i></a></p>
@@ -55,7 +56,7 @@ $sql = "SELECT * FROM prestamo";
 
 	<!-- Main content -->
 	<main>
-		<h2>INVENTARIO DE OBJETOS</h2>
+		<h2>PRÉSTAMOS REALIZADOS</h2>
 		<div class="container-table">
 			<div class="container-table-title">ID del préstamo</div>
 			<div class="container-table-title">Fecha del prestamo</div>
@@ -63,7 +64,6 @@ $sql = "SELECT * FROM prestamo";
 			<div class="container-table-title">Documento</div>
 			<div class="container-table-title">Fecha de devolución</div>
 			<div class="container-table-title">Observaciones</div>
-			<div class="container-table-title">Editar</div>
 			<?php $resultado = mysqli_query($cnx, $sql);
 			while($row = mysqli_fetch_assoc($resultado)) {?>
 			<div class="container-table-info" id="id-row"><?php echo $row["id_prestamo"]; ?></div>
@@ -72,8 +72,11 @@ $sql = "SELECT * FROM prestamo";
 			<div class="container-table-info"><?php echo $row["documento"]; ?></div>
 			<div class="container-table-info"><?php echo $row["fecha_devolucion"]; ?></div>
 			<div class="container-table-info"><?php echo $row["observaciones"]; ?></div>
-			<div class="container-table-info"><a href="editar-articulo.php?id=<?php echo $row["id_articulo"];?>"><i class="fa-solid fa-pen-to-square"></i></a></div>
 			<?php } mysqli_free_result($resultado)?>
+		</div>
+		<div class="container-prestamos">
+			<a href="prestamo.php" class="btn">Crear préstamo</a>
+			<a href="#" class="btn">Realizar devolución</a>
 		</div>
 		<!-- Footer -->
 		<footer>

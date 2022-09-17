@@ -39,7 +39,7 @@
 					<ul class="center-nav">
 						<li><a href="#home">Inicio</a></li>
 						<li><a href="vistas/inventario.php">Inventario</a></li>
-						<li><a href="vistas/prestamo.php">Préstamos</a></li>
+						<li><a href="vistas/tabla-prestamo.php">Préstamos</a></li>
 					</ul>
 					<div class="select">	
 						<p>Bienvenid@&nbsp;<strong><?php echo $results["nombre_completo"]; ?></strong><a href="vistas/editar-usuario.php" class="edit">&nbsp;<i class="fa-solid fa-pen-to-square"></i></a></p>

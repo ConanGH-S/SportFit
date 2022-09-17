@@ -47,8 +47,7 @@
     $sql = "INSERT INTO prestamo(fecha_prestamo, id_articulo, documento, fecha_devolucion, observaciones) VALUES ('$fecha_prestamo', '$resultado_articulo', '$resultado_documento', '$fecha_devolucion', '$observaciones')";
     if(mysqli_query($cnx, $sql)){
         echo '<script language="javascript">';
-        echo 'alert("Préstamo agregado");';
-        echo 'window.location="inventario.php";';
+        echo 'window.location="tabla-prestamo.php";';
         echo '</script>';
     } else {
         echo '<script language="javascript">';

@@ -42,7 +42,7 @@ if (isset($_SESSION['user_id'])) {
         <ul class="center-nav">
             <li><a href="../index.php">Inicio</a></li>
             <li><a href="inventario.php">Inventario</a></li>
-            <li><a href="#">Préstamos</a></li>
+            <li><a href="tabla-prestamo.php">Préstamos</a></li>
         </ul>
         <div class="select">
             <p>Bienvenid@&nbsp;<strong><?php echo $results["nombre_completo"]; ?></strong><a href="editar-usuario.php" class="edit">&nbsp;<i class="fa-solid fa-pen-to-square"></i></a></p>
@@ -51,7 +51,7 @@ if (isset($_SESSION['user_id'])) {
     </nav>
     <!-- Fin del navbar -->
     <!-- Main content -->
-    <main>
+    <main class="main-prestamo">
         <h2>Préstamos</h2>
         <form action="realizar-prestamo.php" method="POST" name="prestamo" id="prestamo">
             <label for='documento'>Documento</label>

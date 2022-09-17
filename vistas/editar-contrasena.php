@@ -42,7 +42,7 @@
         <ul class="center-nav">
             <li><a href="../index.php">Inicio</a></li>
             <li><a href="inventario.php">Inventario</a></li>
-            <li><a href="prestamo.php">Préstamos</a></li>
+            <li><a href="tabla-prestamo.php">Préstamos</a></li>
         </ul>
         <div class="select">	
             <p>Bienvenid@&nbsp;<strong><?php echo $results["nombre_completo"]; ?></strong><a href="editar-usuario.php" class="edit">&nbsp;<i class="fa-solid fa-pen-to-square"></i></a></p>

@@ -24,7 +24,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Préstamos | SportFIT</title>
-        <link rel="shortcut icon" href="../imgs/favicon.ico" type="image/x-icon" />
+        <link rel="shortcut icon" href="../imgs/favicon.png" type="image/x-icon" />
         <link rel="stylesheet" href="../css/prestamo.css">
         <link rel="stylesheet" href="../css/styles.css" />
         <!-- Font Awesome -->
@@ -35,7 +35,7 @@
         <!-- Inicio navbar -->
         <nav class="navbar">
             <a href="../index.php" class="logo" >
-                <img src="../imgs/Mockup - deportfit.svg" alt="logo SportFit" />
+                <img src="../imgs/sportfit.png" alt="logo SportFit" />
             </a>
             <ul class="center-nav">
                 <li><a href="../index.php">Inicio</a></li>

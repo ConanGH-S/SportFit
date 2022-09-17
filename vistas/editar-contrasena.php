@@ -24,8 +24,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edición de usuario | SportFIT</title>
-    <link rel="shortcut icon" href="../imgs/favicon.ico" type="image/x-icon">
+    <title>Edición de Contraseña | SportFIT</title>
+    <link rel="shortcut icon" href="../imgs/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/edicion-usuario.css">
     <!-- Font Awesome -->
@@ -37,7 +37,7 @@
     <!-- Inicio navbar -->
     <nav class="navbar">
         <a href="../index.php" class="logo" >
-            <img src="../imgs/Mockup - deportfit.svg" alt="logo SportFit" />
+            <img src="../imgs/sportfit.png" alt="logo SportFit" />
         </a>
         <ul class="center-nav">
             <li><a href="../index.php">Inicio</a></li>
@@ -45,7 +45,7 @@
             <li><a href="prestamo.php">Préstamos</a></li>
         </ul>
         <div class="select">	
-            <p>Bienvenid@&nbsp;<strong><?php echo $results["nombre_completo"]; ?></strong><a href="#" class="edit">&nbsp;<i class="fa-solid fa-pen-to-square"></i></a></p>
+            <p>Bienvenid@&nbsp;<strong><?php echo $results["nombre_completo"]; ?></strong><a href="editar-usuario.php" class="edit">&nbsp;<i class="fa-solid fa-pen-to-square"></i></a></p>
             <a href="logout.php" class="btn" id="iniciar-sesion">Cerrar sesión</a>
         </div>
     </nav>

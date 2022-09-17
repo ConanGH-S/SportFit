@@ -18,8 +18,7 @@
 	}
 ?>
 <?php
-$cnx = mysqli_connect("localhost", "root", "", "sportfit");
-mysqli_set_charset($cnx, "utf8");
+require("../php/conexionsqli.php");
 $sql = "SELECT * FROM articulo";
 ?>
 <!DOCTYPE html>
@@ -29,7 +28,7 @@ $sql = "SELECT * FROM articulo";
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>Inventario | SportFIT</title>
-	<link rel="shortcut icon" href="../imgs/favicon.ico" type="image/x-icon" />
+	<link rel="shortcut icon" href="../imgs/favicon.png" type="image/x-icon" />
 	<link rel="stylesheet" href="../css/styles.css" />
 	<link rel="stylesheet" href="../css/inventario.css">
 	<script src="../js/script-inventario.js" defer></script>
@@ -40,7 +39,7 @@ $sql = "SELECT * FROM articulo";
 	<!-- Inicio navbar -->
 	<nav class="navbar">
         <a href="../index.php" class="logo" >
-            <img src="../imgs/Mockup - deportfit.svg" alt="logo SportFit" />
+			<img src="../imgs/sportfit.png" alt="logo SportFit" />
         </a>
         <ul class="center-nav">
             <li><a href="../index.php">Inicio</a></li>
@@ -71,8 +70,8 @@ $sql = "SELECT * FROM articulo";
 			<div class="container-table-info"><?php echo $row["cantidad"]; ?></div>
 			<div class="container-table-info"><?php echo $row["estado_articulo"]; ?></div>
 			<div class="container-table-info"><?php echo $row["descripcion"]; ?></div>
-			<div class="container-table-info"><a href="editar-articulo.php"><i class="fa-solid fa-pen-to-square"></i></a></div>
-			<?php } mysqli_free_result($resultado) ?>
+			<div class="container-table-info"><a href="editar-articulo.php?id=<?php echo $row["id_articulo"];?>"><i class="fa-solid fa-pen-to-square"></i></a></div>
+			<?php } mysqli_free_result($resultado)?>
 		</div>
 		<!-- Footer -->
 		<footer>

@@ -28,6 +28,7 @@ main h2 {
 	border-bottom: 2px solid black;
 	display: flex;
 	justify-content: center;
+	text-align: center;
 }
 
 .container-table-title {

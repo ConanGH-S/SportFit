@@ -31,7 +31,6 @@ if (isset($_SESSION['user_id'])) {
     <link rel="stylesheet" href="../css/styles.css" />
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="../js/script-prestamo.js" defer></script>
 </head>
 
 <body>
@@ -59,11 +58,11 @@ if (isset($_SESSION['user_id'])) {
             <?php require '../php/conexionsqli.php';
             $result = mysqli_query($cnx, "SELECT documento FROM usuarios WHERE id='$id'");
             while ($row = mysqli_fetch_assoc($result)) {
-                echo "<input type='text' value='{$row['documento']}' placeholder='Escribe tus datos aquí' disabled readonly name='documento'>";
+                echo "<input type='text' value='{$row['documento']}' placeholder='Escribe tus datos aquí' disabled readonly>";
             } mysqli_free_result($result);
             ?>
             <label for="objeto">Objeto a prestar</label>
-            <select name="objeto" name="option_object" required>
+            <select name="select" required>
                 <option selected disabled>Seleccione una opción:</option>
                 <option value="1">Balón de fútbol</option>
                 <option value="2">Colchoneta</option>
@@ -78,12 +77,14 @@ if (isset($_SESSION['user_id'])) {
                 <option value="11">Pelota de ping pong</option>
                 <option value="12">Metro</option>
                 <option value="13">Raqueta de ping pong</option>
-                <option value="13">Pesas pequeñas</option>
+                <option value="14">Pesas pequeñas</option>
             </select>
             <label for="fecha_prestamo">Fecha Préstamo</label>
             <input type="date" id="fecha" name="fecha_prestamo" required>
             <label for="fecha_devolución">Fecha devolución</label>
             <input type="date" id="devolver" name="fecha_devolucion" required>
+            <label for="observaciones">Observaciones</label>
+            <input type="text" placeholder="Ingrese las observaciones aquí" name="observaciones" maxlength="100" required>
             <button id="enviarPrestamo" class="btn">Solicitar Préstamo</button>
         </form>
     </main>
@@ -116,6 +117,11 @@ if (isset($_SESSION['user_id'])) {
         <div class="copyright">© 2022 SportFIT - Todos los derechos reservados</div>
     </footer>
     <!-- Fin Footer -->
+    <script>
+        const fechaEl = document.querySelector("#fecha");
+        let fecha = new Date();
+        fechaEl.value =  `${fecha.getFullYear()}-${String(fecha.getMonth()+1).padStart(2, "0")}-${String(fecha.getDate()).padStart(2, "0")}`;
+    </script>
 </body>
 
 </html>

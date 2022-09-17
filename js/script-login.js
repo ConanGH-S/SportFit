@@ -69,12 +69,12 @@ const validarLoginForm = (e) => {
 		contrasenaLoginInput.value.length === 0 ||
 		contrasenaLoginInput.value === '' ||
 		contrasenaLoginInput.value === null ||
-		/^\s+$/.test(contrasenaLoginInput.value)) {ç
+		/^\s+$/.test(contrasenaLoginInput.value)) {
 		e.preventDefault();
 		Swal.fire({
 			icon: 'error',
 			title: 'Error...',
-			text: 'Los campos no pueden estar vacío o lleno de espacios en blanco!',
+			text: 'Los campos no pueden estar vacíos o llenos de espacios en blanco!',
 		});
 		return;
 	}

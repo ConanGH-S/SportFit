@@ -50,3 +50,38 @@ main h2 {
 #prestamo button {
     width: 100%;
 }
+/* Tabla */
+
+.container-table {
+	background: white;
+	border: 2px solid black;
+	display: grid;
+	grid-auto-rows: 150px;
+	grid-template-columns: repeat(6, 1fr);
+	margin: 50px auto;
+	width: 90%;
+}
+
+.container-table-title,
+.container-table-info {
+	align-items: center;
+	border-bottom: 2px solid black;
+	display: flex;
+	justify-content: center;
+	text-align: center;
+}
+
+.container-table-title {
+	background: #ffc048;
+	font-size: 1.3rem;
+	font-weight: bold;
+}
+
+.container-table-info {
+	border-left: 1px solid black;
+	font-size: 1.1rem;
+	padding: 1rem;
+}
+#id-row:nth-child(even) {
+	background: whitesmoke;
+}

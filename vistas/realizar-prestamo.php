@@ -1,10 +1,9 @@
 <?php
     session_start();
 
-    require 'session.php';
+    require_once 'session.php';
     require '../php/conexion.php';
     require '../php/conexionsqli.php';
-    $id = $_SESSION["user_id"];
 
     if (isset($_SESSION['user_id'])) {
         $records = $conn->prepare('SELECT id, nombre_completo, correo, contrasena FROM usuarios WHERE id = :id');
@@ -19,13 +18,42 @@
         }
     }
 
-    $mysqli = mysqli_connect("localhost", "root", "", "sportfit");
+    //! Obtener documento y verificar que los documentos del usuario y el prestamo sean iguales, luego asignar esos datos a una variable en caso de que sean iguales
+    $id = $_SESSION["user_id"];
+    $sql_documento = mysqli_query($cnx, "SELECT documento FROM usuarios WHERE id='$id'");
+    $row_documento = mysqli_fetch_assoc($sql_documento);
+    $resultado_documento = $row_documento["documento"];
+    //! FIN
 
-    $documento = $_POST["documento"];
-    $articulo = $_POST["option-object"];
+    //! Valores del articulo
+    $articulo = $_POST["select"];
+    $query_articulo = mysqli_query($cnx, "SELECT id_articulo FROM articulo WHERE id_articulo='$articulo'");
+    $row_articulo = mysqli_fetch_assoc($query_articulo);
+    $resultado_articulo = $row_articulo["id_articulo"];
+    //! FIN
+
+    //! Valores de la fecha del prestamo
     $fecha_prestamo = $_POST["fecha_prestamo"];
-    $fecha_devolucion = $_POST["fecha_devolucion"];
+    //! FIN
 
-    $sql = "SELECT * FROM prestamo WHERE documento='$documento'";
-    // TODO: Verificar los datos del documento, además de que con el articulo sea comparado con el value que tiene, y si está en la base de datos que tome esa.
+    //! Valores de la fecha de devolucion
+    $fecha_devolucion = $_POST["fecha_devolucion"];
+    //! FIN
+
+    //! Valores de observaciones
+    $observaciones = $_POST["observaciones"];
+    //! FIN
+
+    $sql = "INSERT INTO prestamo(fecha_prestamo, id_articulo, documento, fecha_devolucion, observaciones) VALUES ('$fecha_prestamo', '$resultado_articulo', '$resultado_documento', '$fecha_devolucion', '$observaciones')";
+    if(mysqli_query($cnx, $sql)){
+        echo '<script language="javascript">';
+        echo 'alert("Préstamo agregado");';
+        echo 'window.location="inventario.php";';
+        echo '</script>';
+    } else {
+        echo '<script language="javascript">';
+        echo 'alert("Error!");';
+        echo 'window.location="../index.php";';
+        echo '</script>';
+    }
 ?>

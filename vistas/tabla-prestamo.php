@@ -32,7 +32,7 @@ $sql = "SELECT * FROM prestamo";
 	<link rel="stylesheet" href="../css/styles.css" />
 	<link rel="stylesheet" href="../css/inventario.css">
 	<link rel="stylesheet" href="../css/prestamo.css">
-	<script src="../js/script-inventario.js" defer></script>
+	<script src="../js/script-estado.js" defer></script>
 	<!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
@@ -57,6 +57,9 @@ $sql = "SELECT * FROM prestamo";
 	<!-- Main content -->
 	<main>
 		<h2>PRÉSTAMOS REALIZADOS</h2>
+		<div class="container-prestamos">
+			<a href="prestamo.php" class="btn">Crear préstamo</a>
+		</div>
 		<div class="container-table">
 			<div class="container-table-title">ID del préstamo</div>
 			<div class="container-table-title">Fecha del prestamo</div>
@@ -64,6 +67,8 @@ $sql = "SELECT * FROM prestamo";
 			<div class="container-table-title">Documento</div>
 			<div class="container-table-title">Fecha de devolución</div>
 			<div class="container-table-title">Cantidad Prestada</div>
+			<div class="container-table-title">Estado del préstamo</div>
+			<div class="container-table-title">Relizar devolución</div>
 			<?php $resultado = mysqli_query($cnx, $sql);
 			while($row = mysqli_fetch_assoc($resultado)) {?>
 			<div class="container-table-info" id="id-row"><?php echo $row["id_prestamo"]; ?></div>
@@ -72,12 +77,11 @@ $sql = "SELECT * FROM prestamo";
 			<div class="container-table-info"><?php echo $row["documento"]; ?></div>
 			<div class="container-table-info"><?php echo $row["fecha_devolucion"]; ?></div>
 			<div class="container-table-info"><?php echo $row["cantidad"]; ?></div>
+			<div class="container-table-info estado-prestamo"><?php echo $row["estado"]; ?></div>
+			<div class="container-table-info"><a href="actualizar-estado.php?id=<?php echo $row["id_prestamo"]?>" class="btn">Devolver</a></div>
 			<?php } mysqli_free_result($resultado)?>
 		</div>
-		<div class="container-prestamos">
-			<a href="prestamo.php" class="btn">Crear préstamo</a>
-			<a href="#" class="btn">Realizar devolución</a>
-		</div>
+		
 		<!-- Footer -->
 		<footer>
 			<ul class="footer-info">

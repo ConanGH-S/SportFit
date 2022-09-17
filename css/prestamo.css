@@ -52,13 +52,29 @@
 }
 /* Tabla */
 .container-prestamos {
-	height: 10vh;
 	display: flex;
 	justify-content: center;
-	align-items: center;
-	gap: 20px;
-	margin-bottom: 3rem;
+	margin-top: 2em;
+	width: 90%;
+	position: relative;
+	left: 50%;
+	transform: translate(-50%);
+}
+.container-prestamos a {
+	background-color: #444;
+	color: #fff;
+	width: 40%;
+	text-align: center;
+}
+.container-prestamos a:hover {
+	background-color: #000;
+	color: #fff;
 }
 .container-table {
 	grid-auto-rows: 80px;
+	grid-template-columns: repeat(8, 1fr);
+}
+.estado-prestamo{
+	color: red;
+	user-select: none;
 }

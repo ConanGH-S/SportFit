@@ -69,6 +69,7 @@ const validarLoginForm = (e) => {
 			title: 'Error...',
 			text: 'Los campos no pueden estar vacíos o llenos de espacios en blanco!',
 		});
+		return;
 	}
 };
 const validarCorreoLogin = () => {

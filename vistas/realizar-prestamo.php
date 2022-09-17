@@ -44,7 +44,9 @@
     $cantidad = $_POST["cantidad"];
     //! FIN
 
-    $sql = "INSERT INTO prestamo(fecha_prestamo, id_articulo, documento, fecha_devolucion, cantidad) VALUES ('$fecha_prestamo', '$resultado_articulo', '$resultado_documento', '$fecha_devolucion', '$cantidad')";
+    $estado = 'En proceso';
+
+    $sql = "INSERT INTO prestamo(fecha_prestamo, id_articulo, documento, fecha_devolucion, cantidad, estado) VALUES ('$fecha_prestamo', '$resultado_articulo', '$resultado_documento', '$fecha_devolucion', '$cantidad', '$estado')";
     if(mysqli_query($cnx, $sql)){
         echo '<script language="javascript">';
         echo 'window.location="tabla-prestamo.php";';

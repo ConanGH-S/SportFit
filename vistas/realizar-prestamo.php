@@ -27,7 +27,7 @@
 
     //! Valores del articulo
     $articulo = $_POST["select"];
-    $query_articulo = mysqli_query($cnx, "SELECT id_articulo FROM articulo WHERE id_articulo='$articulo'");
+    $query_articulo = mysqli_query($cnx, "SELECT * FROM articulo WHERE id_articulo='$articulo'");
     $row_articulo = mysqli_fetch_assoc($query_articulo);
     $resultado_articulo = $row_articulo["id_articulo"];
     //! FIN
@@ -41,10 +41,10 @@
     //! FIN
 
     //! Valores de observaciones
-    $observaciones = $_POST["observaciones"];
+    $cantidad = $_POST["cantidad"];
     //! FIN
 
-    $sql = "INSERT INTO prestamo(fecha_prestamo, id_articulo, documento, fecha_devolucion, observaciones) VALUES ('$fecha_prestamo', '$resultado_articulo', '$resultado_documento', '$fecha_devolucion', '$observaciones')";
+    $sql = "INSERT INTO prestamo(fecha_prestamo, id_articulo, documento, fecha_devolucion, cantidad) VALUES ('$fecha_prestamo', '$resultado_articulo', '$resultado_documento', '$fecha_devolucion', '$cantidad')";
     if(mysqli_query($cnx, $sql)){
         echo '<script language="javascript">';
         echo 'window.location="tabla-prestamo.php";';

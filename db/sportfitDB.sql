@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 17-09-2022 a las 06:07:34
+-- Tiempo de generación: 17-09-2022 a las 20:13:13
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -58,20 +58,6 @@ INSERT INTO `articulo` (`id_articulo`, `tipo_articulo`, `cantidad`, `estado_arti
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `detalle_prestamo`
---
-
-CREATE TABLE `detalle_prestamo` (
-  `id_detalle_prestamo` int(5) NOT NULL,
-  `id_prestamo` int(5) NOT NULL,
-  `id_devolucion` int(5) NOT NULL,
-  `id_articulo` int(5) NOT NULL,
-  `documento` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `devolucion`
 --
 
@@ -94,8 +80,15 @@ CREATE TABLE `prestamo` (
   `id_articulo` int(5) NOT NULL,
   `documento` int(11) NOT NULL,
   `fecha_devolucion` date NOT NULL,
-  `observaciones` text NOT NULL
+  `cantidad` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `prestamo`
+--
+
+INSERT INTO `prestamo` (`id_prestamo`, `fecha_prestamo`, `id_articulo`, `documento`, `fecha_devolucion`, `cantidad`) VALUES
+(1, '2022-09-17', 1, 1111111111, '2022-09-21', '3');
 
 -- --------------------------------------------------------
 
@@ -117,7 +110,8 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `documento`, `nombre_completo`, `correo`, `contacto`, `contrasena`) VALUES
-(1, 1111111111, 'Admin', 'admin@admin', '1111111111', 'admin');
+(1, 1111111111, 'Admin', 'admin@admin', '1111111111', 'admin'),
+(2, 1017924888, 'Stiven Blandón Urrego', 'blandon0207s@gmail.com', '3183577499', 'admin');
 
 --
 -- Índices para tablas volcadas
@@ -128,16 +122,6 @@ INSERT INTO `usuarios` (`id`, `documento`, `nombre_completo`, `correo`, `contact
 --
 ALTER TABLE `articulo`
   ADD PRIMARY KEY (`id_articulo`);
-
---
--- Indices de la tabla `detalle_prestamo`
---
-ALTER TABLE `detalle_prestamo`
-  ADD PRIMARY KEY (`id_detalle_prestamo`),
-  ADD KEY `Id_devolución` (`id_devolucion`,`id_articulo`),
-  ADD KEY `Documento` (`documento`),
-  ADD KEY `Id_articulo` (`id_articulo`),
-  ADD KEY `id_prestamo` (`id_prestamo`);
 
 --
 -- Indices de la tabla `devolucion`
@@ -181,26 +165,17 @@ ALTER TABLE `devolucion`
 -- AUTO_INCREMENT de la tabla `prestamo`
 --
 ALTER TABLE `prestamo`
-  MODIFY `id_prestamo` int(5) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_prestamo` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Restricciones para tablas volcadas
 --
-
---
--- Filtros para la tabla `detalle_prestamo`
---
-ALTER TABLE `detalle_prestamo`
-  ADD CONSTRAINT `detalle_prestamo_ibfk_1` FOREIGN KEY (`id_devolucion`) REFERENCES `devolucion` (`id_devolucion`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `detalle_prestamo_ibfk_2` FOREIGN KEY (`id_prestamo`) REFERENCES `prestamo` (`id_prestamo`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `detalle_prestamo_ibfk_3` FOREIGN KEY (`id_articulo`) REFERENCES `articulo` (`id_articulo`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `detalle_prestamo_ibfk_4` FOREIGN KEY (`documento`) REFERENCES `usuarios` (`documento`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `devolucion`

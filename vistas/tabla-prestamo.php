@@ -60,18 +60,18 @@ $sql = "SELECT * FROM prestamo";
 		<div class="container-table">
 			<div class="container-table-title">ID del préstamo</div>
 			<div class="container-table-title">Fecha del prestamo</div>
-			<div class="container-table-title">ID del articulo</div>
+			<div class="container-table-title">Nombre del articulo</div>
 			<div class="container-table-title">Documento</div>
 			<div class="container-table-title">Fecha de devolución</div>
-			<div class="container-table-title">Observaciones</div>
+			<div class="container-table-title">Cantidad Prestada</div>
 			<?php $resultado = mysqli_query($cnx, $sql);
 			while($row = mysqli_fetch_assoc($resultado)) {?>
 			<div class="container-table-info" id="id-row"><?php echo $row["id_prestamo"]; ?></div>
 			<div class="container-table-info"><?php echo $row["fecha_prestamo"]; ?></div>
-			<div class="container-table-info"><?php echo $row["id_articulo"]; ?></div>
+			<div class="container-table-info"><?php $sql_nombrearticulo = mysqli_query($cnx, "SELECT * FROM articulo WHERE id_articulo='{$row['id_articulo']}'"); $row_nombrearticulo = mysqli_fetch_assoc($sql_nombrearticulo); $resultado_nombrearticulo = $row_nombrearticulo['tipo_articulo']; echo $resultado_nombrearticulo;?></div>
 			<div class="container-table-info"><?php echo $row["documento"]; ?></div>
 			<div class="container-table-info"><?php echo $row["fecha_devolucion"]; ?></div>
-			<div class="container-table-info"><?php echo $row["observaciones"]; ?></div>
+			<div class="container-table-info"><?php echo $row["cantidad"]; ?></div>
 			<?php } mysqli_free_result($resultado)?>
 		</div>
 		<div class="container-prestamos">

@@ -81,7 +81,7 @@ $sql = "SELECT * FROM prestamo";
 			<div class="container-table-info"><a href="actualizar-estado.php?id=<?php echo $row["id_prestamo"]?>" class="btn">Devolver</a></div>
 			<?php } mysqli_free_result($resultado)?>
 		</div>
-		
+
 		<!-- Footer -->
 		<footer>
 			<ul class="footer-info">

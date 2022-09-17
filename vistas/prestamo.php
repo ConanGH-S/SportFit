@@ -84,7 +84,7 @@ if (isset($_SESSION['user_id'])) {
             <label for="fecha_devolución">Fecha devolución</label>
             <input type="date" id="devolver" name="fecha_devolucion" required>
             <label for="observaciones">Cantidad</label>
-            <input type="number" max="20" placeholder="Ingrese las cantidad de objetos prestados" name="cantidad" required>
+            <input type="number" maxlength="3" placeholder="Ingrese las cantidad de objetos prestados" name="cantidad" required>
             <button id="enviarPrestamo" class="btn">Solicitar Préstamo</button>
         </form>
     </main>

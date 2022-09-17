@@ -1,25 +1,26 @@
 <?php
-	session_start();
+session_start();
 
-    require 'session.php';
-	require '../php/conexion.php';
-    
-	if (isset($_SESSION['user_id'])) {
-        $records = $conn->prepare('SELECT id, nombre_completo, correo, contrasena FROM usuarios WHERE id = :id');
-		$records->bindParam(':id', $_SESSION['user_id']);
-		$records->execute();
-		$results = $records->fetch(PDO::FETCH_ASSOC);
-        
-		$user = null;
-        
-		if (is_countable($results) > 0) {
-            $user = $results;
-		}
-	}
-    $id_articulo = $_GET["id"];
+require 'session.php';
+require '../php/conexion.php';
+
+if (isset($_SESSION['user_id'])) {
+    $records = $conn->prepare('SELECT id, nombre_completo, correo, contrasena FROM usuarios WHERE id = :id');
+    $records->bindParam(':id', $_SESSION['user_id']);
+    $records->execute();
+    $results = $records->fetch(PDO::FETCH_ASSOC);
+
+    $user = null;
+
+    if (is_countable($results) > 0) {
+        $user = $results;
+    }
+}
+$id_articulo = $_GET["id"];
 ?>
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -31,10 +32,11 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
+
 <body>
     <!-- Inicio navbar -->
     <nav class="navbar">
-        <a href="../index.php" class="logo" >
+        <a href="../index.php" class="logo">
             <img src="../imgs/sportfit.png" alt="logo SportFit" />
         </a>
         <ul class="center-nav">
@@ -42,7 +44,7 @@
             <li><a href="inventario.php">Inventario</a></li>
             <li><a href="tabla-prestamo.php">Préstamos</a></li>
         </ul>
-        <div class="select">	
+        <div class="select">
             <p>Bienvenid@&nbsp;<strong><?php echo $results["nombre_completo"]; ?></strong><a href="editar-usuario.php" class="edit">&nbsp;<i class="fa-solid fa-pen-to-square"></i></a></p>
             <a href="logout.php" class="btn" id="iniciar-sesion">Cerrar sesión</a>
         </div>
@@ -55,18 +57,25 @@
         <form action="actualizar-articulo.php" method="POST" id="edicion">
             <?php
             require '../php/conexionsqli.php';
-            $result = mysqli_query($cnx,"SELECT * FROM articulo WHERE id_articulo = '$id_articulo'");
-            while($row = mysqli_fetch_array($result)){
+            $result = mysqli_query($cnx, "SELECT * FROM articulo WHERE id_articulo = '$id_articulo'");
+            while ($row = mysqli_fetch_array($result)) {
                 echo "<input value='{$id_articulo}' type='hidden' name='id_articulo'>";
                 echo "<label>Artículo</label>";
                 echo "<input value='{$row['tipo_articulo']}' disabled placeholder='Articulo' type='text' name='articulo'>";
                 echo "<label>Cantidad</label>";
                 echo "<input required value='{$row['cantidad']}' placeholder='Cantidad' type='number' name='cantidad'>";
-                echo "<label>Estado</label>";
-                echo "<input required value='{$row['estado_articulo']}' placeholder='Estado' type='text' name='estado'>";
+            ?>
+            <label for='estado'>Seleccione el estado</label>
+            <select name='estado' required>
+                <option disabled>Seleccione una opción:</option>
+                <option selected value='Buen estado'>Buen estado</option>
+                <option value='Estado regular'>Estado regular</option>
+                <option value='Mal estado'>Mal estado</option>
+            </select>
+            <?php
                 echo "<button type='submit' class='btn'>Editar</button>";
                 echo "<a href='inventario.php' class='btn'>Cancelar</a>";
-            }?>
+            } ?>
         </form>
     </main>
     <!-- Fin Formulario Edición de Usuario -->
@@ -94,4 +103,5 @@
     </footer>
     <!-- Fin Footer -->
 </body>
+
 </html>

@@ -50,3 +50,8 @@ main h2 {
 	-webkit-user-drag: none;
 	font-size: 13.3px;
 }
+#edicion select {
+	border-radius: 6px;
+	padding: 0.5rem 0.7rem;
+	font-size: 16px;
+}

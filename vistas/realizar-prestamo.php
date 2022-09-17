@@ -44,17 +44,26 @@
     $cantidad = $_POST["cantidad"];
     //! FIN
 
-    $estado = 'En proceso';
-
-    $sql = "INSERT INTO prestamo(fecha_prestamo, id_articulo, documento, fecha_devolucion, cantidad, estado) VALUES ('$fecha_prestamo', '$resultado_articulo', '$resultado_documento', '$fecha_devolucion', '$cantidad', '$estado')";
-    if(mysqli_query($cnx, $sql)){
-        echo '<script language="javascript">';
-        echo 'window.location="tabla-prestamo.php";';
-        echo '</script>';
+    $query_cantidad = mysqli_query($cnx, "SELECT * FROM articulo WHERE id_articulo='$resultado_articulo'");
+    $row_cantidad = mysqli_fetch_assoc($query_cantidad);
+    $resultado_cantidad = $row_cantidad['cantidad'];
+    if($cantidad <= $resultado_cantidad) {
+        $estado = 'En proceso';
+        $sql = "INSERT INTO prestamo(fecha_prestamo, id_articulo, documento, fecha_devolucion, cantidad, estado) VALUES ('$fecha_prestamo', '$resultado_articulo', '$resultado_documento', '$fecha_devolucion', '$cantidad', '$estado')";
+        if(mysqli_query($cnx, $sql)){
+            echo '<script language="javascript">';
+            echo 'window.location="tabla-prestamo.php";';
+            echo '</script>';
+        } else {
+            echo '<script language="javascript">';
+            echo 'alert("Error!");';
+            echo 'window.location="../index.php";';
+            echo '</script>';
+        }
     } else {
         echo '<script language="javascript">';
-        echo 'alert("Error!");';
-        echo 'window.location="../index.php";';
+        echo 'alert("La cantidad a prestar no puede exceder la cantidad del inventario!");';
+        echo 'window.location="prestamo.php";';
         echo '</script>';
     }
 ?>

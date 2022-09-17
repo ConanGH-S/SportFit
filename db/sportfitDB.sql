@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 17-09-2022 a las 04:43:19
--- Versión del servidor: 10.4.18-MariaDB
--- Versión de PHP: 8.0.3
+-- Tiempo de generación: 17-09-2022 a las 06:07:34
+-- Versión del servidor: 10.4.24-MariaDB
+-- Versión de PHP: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -58,10 +58,11 @@ INSERT INTO `articulo` (`id_articulo`, `tipo_articulo`, `cantidad`, `estado_arti
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `detalle_articulo`
+-- Estructura de tabla para la tabla `detalle_prestamo`
 --
 
-CREATE TABLE `detalle_articulo` (
+CREATE TABLE `detalle_prestamo` (
+  `id_detalle_prestamo` int(5) NOT NULL,
   `id_prestamo` int(5) NOT NULL,
   `id_devolucion` int(5) NOT NULL,
   `id_articulo` int(5) NOT NULL,
@@ -129,13 +130,14 @@ ALTER TABLE `articulo`
   ADD PRIMARY KEY (`id_articulo`);
 
 --
--- Indices de la tabla `detalle_articulo`
+-- Indices de la tabla `detalle_prestamo`
 --
-ALTER TABLE `detalle_articulo`
-  ADD PRIMARY KEY (`id_prestamo`),
+ALTER TABLE `detalle_prestamo`
+  ADD PRIMARY KEY (`id_detalle_prestamo`),
   ADD KEY `Id_devolución` (`id_devolucion`,`id_articulo`),
   ADD KEY `Documento` (`documento`),
-  ADD KEY `Id_articulo` (`id_articulo`);
+  ADD KEY `Id_articulo` (`id_articulo`),
+  ADD KEY `id_prestamo` (`id_prestamo`);
 
 --
 -- Indices de la tabla `devolucion`
@@ -156,7 +158,8 @@ ALTER TABLE `prestamo`
 -- Indices de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `documento` (`documento`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -185,6 +188,32 @@ ALTER TABLE `prestamo`
 --
 ALTER TABLE `usuarios`
   MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- Restricciones para tablas volcadas
+--
+
+--
+-- Filtros para la tabla `detalle_prestamo`
+--
+ALTER TABLE `detalle_prestamo`
+  ADD CONSTRAINT `detalle_prestamo_ibfk_1` FOREIGN KEY (`id_devolucion`) REFERENCES `devolucion` (`id_devolucion`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `detalle_prestamo_ibfk_2` FOREIGN KEY (`id_prestamo`) REFERENCES `prestamo` (`id_prestamo`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `detalle_prestamo_ibfk_3` FOREIGN KEY (`id_articulo`) REFERENCES `articulo` (`id_articulo`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `detalle_prestamo_ibfk_4` FOREIGN KEY (`documento`) REFERENCES `usuarios` (`documento`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `devolucion`
+--
+ALTER TABLE `devolucion`
+  ADD CONSTRAINT `devolucion_ibfk_1` FOREIGN KEY (`id_prestamo`) REFERENCES `prestamo` (`id_prestamo`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `prestamo`
+--
+ALTER TABLE `prestamo`
+  ADD CONSTRAINT `prestamo_ibfk_1` FOREIGN KEY (`documento`) REFERENCES `usuarios` (`documento`) ON DELETE NO ACTION ON UPDATE CASCADE,
+  ADD CONSTRAINT `prestamo_ibfk_2` FOREIGN KEY (`id_articulo`) REFERENCES `articulo` (`id_articulo`) ON DELETE NO ACTION ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
